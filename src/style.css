@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+* img {
+    content-visibility: hidden;
+}
+
+@font-face {
+    font-family: 'Hanson';
+    src: url('../assets/fonts/hanson-bold.woff') format('woff'),
+         url('../assets/fonts/hanson-bold.woff2') format('woff2');         
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AppleChancery';
+    src: url('../assets/fonts/apple_chancery.woff2') format('woff2'),
+         url('../assets/fonts/apple_chancery.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
