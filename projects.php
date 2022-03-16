@@ -91,7 +91,7 @@
                     $files = scandir($dir);
                     foreach($files as $file) {
                         if($file !== "." && $file !== ".." && $file !== "info.php") {
-                            echo "<img src='$dir/$file' class='h-full object-cover' />";
+                            echo "<img src='$dir/$file' class='h-full' />";
                         }
                     }
                 ?>
