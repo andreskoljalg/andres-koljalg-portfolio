@@ -42,10 +42,10 @@
     </div>
     <div class="flex flex-col h-screen w-full px-24 pb-24">
         <div class="flex flex-col justify-around h-full">
-            <div>
-                <h1 class="font-['Times_New_Roman'] text-8xl mb-4">01 Photography</h1>
-                <h1 class="font-['Hanson'] text-8xl mb-4">02 DESIGN</h1>
-                <h1 class="font-['AppleChancery'] text-8xl mb-4">03 other</h1>
+            <div class="flex flex-col">
+                <a href="#photography" class="font-['Times_New_Roman'] text-9xl mb-4 w-fit">01 Photography</a>
+                <a href="#design" class="font-['Hanson'] text-9xl mb-4 w-fit">02 DESIGN</a>
+                <a href="#other" class="font-['AppleChancery'] text-9xl mb-4 w-fit">03 other</a>
             </div>
             <div>
                 <i class="fa fa-chevron-down text-5xl flex justify-center"></i>
@@ -58,7 +58,7 @@
         01 PHOTOGRAPHY TITLE
         #################### -->
         <div class="flex w-full p-24 items-end">
-            <img src="assets/svgs/01_photography_title.svg" class="w-3/6" alt="">
+            <img src="assets/svgs/01_photography_title.svg" id="photography" class="w-3/6" alt="">
         </div>
 
         <!-- ### PHOTOGRAPHY PROJECT BLOCK ### -->
@@ -139,7 +139,7 @@
         02 DESIGN TITLE
         #################### -->
         <div class="flex w-full p-24 items-end">
-            <img src="assets/svgs/02_design_title.svg" class="w-3/6" alt="">
+            <img src="assets/svgs/02_design_title.svg" id="design" class="w-3/6" alt="">
         </div>
 
         <!-- ### DESIGN PROJECT BLOCK ### -->
@@ -220,7 +220,7 @@
         03 OTHER TITLE
         #################### -->
         <div class="flex w-full p-24 items-end">
-            <img src="assets/svgs/03_other_title.svg" class="w-2/6" alt="">
+            <img src="assets/svgs/03_other_title.svg" id="other" class="w-2/6" alt="">
         </div>
 
         <!-- ### OTHER PROJECT BLOCK ### -->
