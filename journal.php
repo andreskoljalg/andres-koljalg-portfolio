@@ -21,7 +21,7 @@
                 $files = scandir($dir);
                 foreach($files as $file) {
                     if($file !== "." && $file !== "..") {
-                        echo "<img src='$dir$file' class='h-full object-cover hidden' />";
+                        echo "<img src='$dir$file' class='h-full object-cover' />";
                     }
                 }
             ?>
