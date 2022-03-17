@@ -623,6 +623,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   gap: 2.5rem;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.gap-64 {
+  gap: 16rem;
+}
+
 .overflow-x-scroll {
   overflow-x: scroll;
 }
