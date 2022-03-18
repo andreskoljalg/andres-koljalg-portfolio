@@ -9,5 +9,5 @@ if (isset($_POST['submit'])) {
     $headers = "From ".$name." at ".$mailFrom.". Sent using portfolio contact form.";
 
     mail($mailTo, $subject, $message, $headers);
-    header("Location: contact.html?mailsend");
+    header("Location: contact.html");
 }
