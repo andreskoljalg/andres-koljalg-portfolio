@@ -15,8 +15,8 @@ html {
 @font-face {
   font-family: 'Hanson';
 
-  src: url('/andres-koljalg-portfolio/assets/fonts/hanson-bold.woff') format('woff'),
-         url('/andres-koljalg-portfolio/assets/fonts/hanson-bold.woff2') format('woff2');
+  src: url('../assets/fonts/hanson-bold.woff') format('woff'),
+         url('../assets/fonts/hanson-bold.woff2') format('woff2');
 
   font-weight: normal;
 
@@ -26,8 +26,8 @@ html {
 @font-face {
   font-family: 'AppleChancery';
 
-  src: url('/andres-koljalg-portfolio/assets/fonts/apple_chancery.woff2') format('woff2'),
-         url('/andres-koljalg-portfolio/assets/fonts/apple_chancery.woff') format('woff');
+  src: url('../assets/fonts/apple_chancery.woff2') format('woff2'),
+         url('../assets/fonts/apple_chancery.woff') format('woff');
 
   font-weight: normal;
 
@@ -540,12 +540,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 100vh;
 }
 
-.h-full {
-  height: 100%;
-}
-
 .h-\[30rem\] {
   height: 30rem;
+}
+
+.h-full {
+  height: 100%;
 }
 
 .h-\[36rem\] {
@@ -621,18 +621,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .gap-10 {
   gap: 2.5rem;
-}
-
-.gap-2 {
-  gap: 0.5rem;
-}
-
-.gap-6 {
-  gap: 1.5rem;
-}
-
-.gap-64 {
-  gap: 16rem;
 }
 
 .overflow-x-scroll {
