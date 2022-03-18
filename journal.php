@@ -15,13 +15,13 @@
         <div class="flex flex-col px-12 justify-center">
             <h1 class="font-['Hanson'] text-6xl">JOURNAL</h1>
         </div>
-        <div class="flex h-[30rem] col-span-6 overflow-x-scroll">
+        <div class="flex h-[30rem] overflow-x-scroll">
             <?php
                 $dir = "assets/journal/";
                 $files = scandir($dir);
                 foreach($files as $file) {
                     if($file !== "." && $file !== "..") {
-                        echo "<img src='$dir$file' class='h-full object-cover' />";
+                        echo "<img src='$dir$file' class='h-full' loading='lazy' />";
                     }
                 }
             ?>
