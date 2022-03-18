@@ -1,0 +1,13 @@
+<?php
+
+if (isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $subject = "New message from portfolio";
+    $mailFrom = $_POST['mail'];
+    $message = $_POST['message'];
+    $mailTo = "server@tak21fredyait.itmajakas.ee";
+    $headers = "From ".$name." at ".$mailFrom.". Sent using portfolio contact form.";
+
+    mail($mailTo, $subject, $message, $headers);
+    header("Location: contact.html?mailsend");
+}

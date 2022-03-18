@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Andres Kõljalg</title>
+</head>
+<body>
+    <div class="px-24 py-6 fixed">
+        <a href="index.html"><h1 class="font-['Hanson'] text-3xl">BACK</h1></a>  
+    </div>
+    <div class="flex h-screen w-screen py-24 pb-24 pl-24 gap-10">
+        <div class="flex flex-col w-3/5 justify-center">
+            <h1 class="font-['Hanson'] text-6xl">LET'S TALK,</h1>
+            <h1 class="font-['Hanson'] text-6xl mb-4"">BUT YOU FIRST.</h1>
+            <form action="contactform.php" method="post" class="w-full flex flex-col">
+                <p class="font-['Times_New_Roman']">Your name</p>
+                <input type="text" name="name" class="bg-[#EEEEEE] rounded mb-4 w-1/2 h-8">
+                <p class="font-['Times_New_Roman']">Your e-mail address</p>
+                <input type="text" name="mail" class="bg-[#EEEEEE] rounded mb-4 w-1/2 h-8">
+                <p class="font-['Times_New_Roman']">Your message</p>
+                <textarea name="message" class="bg-[#EEEEEE] rounded h-24 resize-none mb-4"></textarea>
+                <button type="submit" name="submit" class="bg-black text-white px-4 py-3 font-['Times_New_Roman'] h-fit w-fit">Submit</button>
+            </form>
+        </div>
+        <div class="flex justify-center items-center">
+            <img src="assets/svgs/phone.svg" class="w-full" alt="title_image">
+        </div>
+    </div>
+</body>
+</html>
