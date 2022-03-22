@@ -36,6 +36,16 @@
         
             echo "<script>console.log('$output');</script>";
         }
+
+        function imgLoad($dirPath, $index){
+            $dir = ($dirPath . scandir($dirPath)[$index]);
+            $files = scandir($dir);
+            foreach($files as $file) {
+                if($file !== "." && $file !== ".." && $file !== "info.php") {
+                    echo "<img src='$dir/$file' class='h-full' loading='lazy' />";
+                }
+            }
+        }
     ?>
     <div class="px-24 py-6">
         <a href="index.html"><h1 class="font-['Hanson'] text-3xl">BACK</h1></a>  
@@ -87,13 +97,7 @@
             </div>
             <div class="flex h-[36rem] col-span-6 overflow-x-scroll">
                 <?php
-                    $dir = ("projects/photography/" . scandir("projects/photography/")[$photographyIndex]);
-                    $files = scandir($dir);
-                    foreach($files as $file) {
-                        if($file !== "." && $file !== ".." && $file !== "info.php") {
-                            echo "<img src='$dir/$file' class='h-full' loading='lazy' />";
-                        }
-                    }
+                    imgLoad("projects/photography/", $photographyIndex);
                 ?>
             </div>
         </div>
@@ -124,13 +128,7 @@
             </div>
             <div class="flex h-[36rem] col-span-6 overflow-x-scroll">
                 <?php
-                    $dir = ("projects/photography/" . scandir("projects/photography/")[$photographyIndex]);
-                    $files = scandir($dir);
-                    foreach($files as $file) {
-                        if($file !== "." && $file !== ".." && $file !== "info.php") {
-                            echo "<img src='$dir/$file' class='h-full' loading='lazy' />";
-                        }
-                    }
+                    imgLoad("projects/photography/", $photographyIndex);
                 ?>  
             </div>
         </div>
@@ -168,13 +166,7 @@
             </div>
             <div class="flex h-[36rem] col-span-6 overflow-x-scroll">
                 <?php
-                    $dir = ("projects/design/" . scandir("projects/design/")[$designIndex]);
-                    $files = scandir($dir);
-                    foreach($files as $file) {
-                        if($file !== "." && $file !== ".." && $file !== "info.php") {
-                            echo "<img src='$dir/$file' class='h-full' loading='lazy' />";
-                        }
-                    }
+                    imgLoad("projects/design/", $designIndex);
                 ?>
             </div>
         </div>
@@ -205,13 +197,7 @@
             </div>
             <div class="flex h-[36rem] col-span-6 overflow-x-scroll">
                 <?php
-                    $dir = ("projects/design/" . scandir("projects/design/")[$designIndex]);
-                    $files = scandir($dir);
-                    foreach($files as $file) {
-                        if($file !== "." && $file !== ".." && $file !== "info.php") {
-                            echo "<img src='$dir/$file' class='h-full' loading='lazy' />";
-                        }
-                    }
+                    imgLoad("projects/design/", $designIndex);
                 ?>  
             </div>
         </div>
@@ -249,13 +235,7 @@
             </div>
             <div class="flex h-[36rem] col-span-6 overflow-x-scroll">
                 <?php
-                    $dir = ("projects/other/" . scandir("projects/other/")[$otherIndex]);
-                    $files = scandir($dir);
-                    foreach($files as $file) {
-                        if($file !== "." && $file !== ".." && $file !== "info.php") {
-                            echo "<img src='$dir/$file' class='h-full' loading='lazy' />";
-                        }
-                    }
+                    imgLoad("projects/other/", $otherIndex);
                 ?>
             </div>
         </div>
@@ -286,13 +266,7 @@
             </div>
             <div class="flex h-[36rem] col-span-6 overflow-x-scroll">
                 <?php
-                    $dir = ("projects/other/" . scandir("projects/other/")[$otherIndex]);
-                    $files = scandir($dir);
-                    foreach($files as $file) {
-                        if($file !== "." && $file !== ".." && $file !== "info.php") {
-                            echo "<img src='$dir/$file' class='h-full' loading='lazy' />";
-                        }
-                    }
+                    imgLoad("projects/other/", $otherIndex);
                 ?>  
             </div>
         </div>
