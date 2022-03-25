@@ -6,7 +6,7 @@ const menu = document.getElementById('menu');
 window.onload = function(){
     element.forEach((el) => {
         el.style.opacity = 1;
-        el.classList.remove("translate-x-full");
+        el.classList.remove("translate-x-full", "-translate-y-full");
     });
 }
 
@@ -17,7 +17,7 @@ menuToggle.forEach((el) => {
             menu.classList.remove("translate-x-full");
         } else {
             menuToggled = false;
-            menu.classList.add("translate-x-full");
+            menu.classList.add("translate-x-full")
         }
     })
 });
