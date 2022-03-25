@@ -8,10 +8,20 @@
     <title>Andres Kõljalg</title>
 </head>
 <body>
-    <div class="flex h-screen w-screen p-24">
-        <div class="flex flex-col justify-center items-center translate-x-full ease-in-out duration-700 delay-[1500ms]" id="title-div">
-            <img src="assets/svgs/ak_mainlogotitle.svg" id="title" alt="ak_mainlogotitle" class="opacity-0 ease-linear duration-500 delay-500">
-            <div class="w-full text-[28px] flex flex-row justify-between font-['Times_New_Roman'] opacity-0 ease-linear duration-500 delay-[1000ms]" id="links">
+    <header class="flex md:hidden h-[10vh] p-2 justify-between">
+        <img src="assets/svgs/ak_mainlogotitle.svg" class="opacity-0 duration-700 delay-300" id="fade" alt="ak_mainlogotitle">
+        <div class="opacity-0 duration-700 delay-500" id="fade">
+            menu
+        </div>
+    </header>
+    <div class="md:flex md:h-screen md:justify-center md:items-center md:px-12 md:gap-5">
+        <div class="h-[90vh] p-[10vw] sm:py-[1vw] flex justify-around gap-5 flex-col md:hidden opacity-0 duration-700 delay-700" id="fade">
+            <img src="assets/images/title_image_rotated.png" class="overflow-hidden" alt="title_image" id="title-image">
+            <p class="text-center font-['Times_New_Roman'] text-xl">hello@andreskoljalg.com</p>
+        </div>
+        <div class="hidden md:flex justify-center items-center flex-col translate-x-full delay-[1500ms] duration-700 ease-in-out" id="fade">
+            <img src="assets/svgs/ak_mainlogotitle.svg" id="fade" class="opacity-0 delay-500 duration-700" alt="ak_mainlogotitle">
+            <div class="w-full hidden text-xl md:flex flex-col lg:flex-row lg:justify-between justify-center items-center font-['Times_New_Roman'] opacity-0 delay-1000 duration-700" id="fade">
                 <a href="/about.html">About</a>
                 <p class="w-fit">&#8226</p>
                 <a href="/projects.php">Projects</a>
@@ -21,11 +31,10 @@
                 <a href="/contact.html">Contact</a>
             </div>
         </div>
-        <div class="flex justify-center items-center pl-24">
-            <img src="assets/images/title_image.png" class="opacity-0 ease-linear duration-500 delay-[2250ms]" alt="title_image" id="title-image">
+        <div class="hidden md:flex">
+            <img src="assets/images/title_image.png" class="opacity-0 delay-[2000ms] duration-700" alt="title_image" id="fade">
         </div>
     </div>
     <script src="index-animation.js"></script>
-
 </body>
 </html>
