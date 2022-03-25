@@ -1004,6 +1004,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   transition-delay: 1000;
 }
 
+.delay-\[1250\] {
+  transition-delay: 1250;
+}
+
+.delay-\[1250ms\] {
+  transition-delay: 1250ms;
+}
+
 .duration-700 {
   transition-duration: 700ms;
 }
@@ -1055,16 +1063,41 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 @media (min-width: 1024px) {
+  .lg\:flex {
+    display: flex;
+  }
+
   .lg\:hidden {
     display: none;
+  }
+
+  .lg\:h-screen {
+    height: 100vh;
   }
 
   .lg\:flex-row {
     flex-direction: row;
   }
 
+  .lg\:items-center {
+    align-items: center;
+  }
+
+  .lg\:justify-center {
+    justify-content: center;
+  }
+
   .lg\:justify-between {
     justify-content: space-between;
+  }
+
+  .lg\:gap-5 {
+    gap: 1.25rem;
+  }
+
+  .lg\:px-12 {
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 
   .lg\:text-2xl {
