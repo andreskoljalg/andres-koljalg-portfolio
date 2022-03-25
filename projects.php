@@ -33,7 +33,7 @@
             $output = $data;
             if (is_array($output))
                 $output = implode(',', $output);
-        
+            
             echo "<script>console.log('$output');</script>";
         }
 
@@ -47,8 +47,8 @@
             }
         }
     ?>
-    <div class="px-24 py-6">
-        <a href="index.html"><h1 class="font-['Hanson'] text-3xl">BACK</h1></a>  
+    <div class="px-24 py-6 w-fit">
+        <a href="index.html"><h1 class="font-['Hanson'] text-3xl w-fit">BACK</h1></a>  
     </div>
     <div class="flex flex-col h-screen w-full px-24 pb-24">
         <div class="flex flex-col justify-around h-full">
@@ -95,11 +95,12 @@
                     </p>
                 </div>
             </div>
-            <div class="flex h-[36rem] col-span-6 overflow-x-scroll">
+            <a href="<?php $files = scandir("projects/photography"); echo 'projects/photography/' . $files[$photographyIndex] . '/info.php';?>" class="col-span-6">
+            <div class="flex h-[36rem] overflow-x-scroll">
                 <?php
                     imgLoad("projects/photography/", $photographyIndex);
                 ?>
-            </div>
+            </div></a>
         </div>
 
         <!-- ### PHOTOGRAPHY PROJECT BLOCK ### -->
@@ -126,11 +127,12 @@
                     </p>
                 </div>
             </div>
-            <div class="flex h-[36rem] col-span-6 overflow-x-scroll">
+            <a href="<?php $files = scandir("projects/photography"); echo 'projects/photography/' . $files[$photographyIndex] . '/info.php';?>" class="col-span-6">
+            <div class="flex h-[36rem] overflow-x-scroll">
                 <?php
                     imgLoad("projects/photography/", $photographyIndex);
-                ?>  
-            </div>
+                ?>
+            </div></a>
         </div>
 
    <!-- ####################
@@ -164,11 +166,12 @@
                     </p>
                 </div>
             </div>
-            <div class="flex h-[36rem] col-span-6 overflow-x-scroll">
+            <a href="<?php $files = scandir("projects/design"); echo 'projects/design/' . $files[$designIndex] . '/info.php';?>" class="col-span-6">
+            <div class="flex h-[36rem] overflow-x-scroll">
                 <?php
                     imgLoad("projects/design/", $designIndex);
                 ?>
-            </div>
+            </div></a>
         </div>
 
         <!-- ### DESIGN PROJECT BLOCK ### -->
@@ -195,11 +198,12 @@
                     </p>
                 </div>
             </div>
-            <div class="flex h-[36rem] col-span-6 overflow-x-scroll">
+            <a href="<?php $files = scandir("projects/design"); echo 'projects/design/' . $files[$designIndex] . '/info.php';?>" class="col-span-6">
+            <div class="flex h-[36rem] overflow-x-scroll">
                 <?php
                     imgLoad("projects/design/", $designIndex);
-                ?>  
-            </div>
+                ?>
+            </div></a>
         </div>
 
    <!-- ####################
@@ -233,11 +237,12 @@
                     </p>
                 </div>
             </div>
-            <div class="flex h-[36rem] col-span-6 overflow-x-scroll">
+            <a href="<?php $files = scandir("projects/other"); echo 'projects/other/' . $files[$otherIndex] . '/info.php';?>" class="col-span-6">
+            <div class="flex h-[36rem] overflow-x-scroll">
                 <?php
                     imgLoad("projects/other/", $otherIndex);
                 ?>
-            </div>
+            </div></a>
         </div>
 
         <!-- ### OTHER PROJECT BLOCK ### -->
@@ -264,11 +269,12 @@
                     </p>
                 </div>
             </div>
-            <div class="flex h-[36rem] col-span-6 overflow-x-scroll">
+            <a href="<?php $files = scandir("projects/other"); echo 'projects/other/' . $files[$otherIndex] . '/info.php';?>" class="col-span-6">
+            <div class="flex h-[36rem] overflow-x-scroll">
                 <?php
                     imgLoad("projects/other/", $otherIndex);
-                ?>  
-            </div>
+                ?>
+            </div></a>
         </div>
     </div>
 </body>
