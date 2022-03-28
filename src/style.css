@@ -8,10 +8,6 @@ html {
     scroll-behavior: smooth;
 }
 
-* img {
-    content-visibility: visible;
-}
-
 @font-face {
     font-family: 'Hanson';
     src: url('../assets/fonts/hanson-bold.woff') format('woff'),
