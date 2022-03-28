@@ -8,26 +8,48 @@
     <title>Andres Kõljalg</title>
 </head>
 <body>
-    <div class="px-24 py-6 fixed">
+    <div id="menu" class="fixed h-screen w-screen justify-center items-center translate-x-full flex flex-col text-2xl font-['Times_New_Roman'] bg-white duration-500 ease-in-out lg:hidden">
+        <a href="/about.html">About</a>
+        <p class="w-fit">&#8226</p>
+        <a href="/projects.php">Projects</a>
+        <p class="w-fit">&#8226</p>
+        <a href="/journal.php">Journal</a>
+        <p class="w-fit">&#8226</p>
+        <a href="/contact.html" class="mb-6">Contact</a>
+        <div class="w-12 h-12 flex justify-center items-center" id="menuToggle">
+            <div class="w-12 fixed h-2 bg-black rotate-45"></div>
+            <div class="w-12 fixed h-2 bg-black -rotate-45"></div>
+        </div>
+    </div>
+    <header class="flex lg:hidden h-16 py-2 px-[10vw] justify-between -translate-y-full ease-in-out duration-700 delay-300" id="fade">
+        <img src="assets/svgs/ak_mainlogotitle.svg" alt="ak_mainlogotitle">
+        <div class="w-12 flex justify-between py-3 pl-3 items-end flex-col" id="menuToggle">
+            <div class="h-1/6 w-1/3 bg-black"></div>
+            <div class="h-1/6 w-2/3 bg-black"></div>
+            <div class="h-1/6 w-full bg-black"></div>
+        </div>
+    </header>
+    <div class="px-24 py-6 hidden lg:block w-fit">
         <a href="index.html"><h1 class="font-['Hanson'] text-3xl">BACK</h1></a>  
     </div>
-    <div class="flex h-screen w-screen py-24 pb-24 pl-24 gap-10">
-        <div class="flex flex-col w-3/5 justify-center">
-            <h1 class="font-['Hanson'] text-6xl">LET'S TALK,</h1>
-            <h1 class="font-['Hanson'] text-6xl mb-4"">BUT YOU FIRST.</h1>
+    <div class="flex w-screen px-[10vw] py-12 lg:pl-24 lg:pt-12 lg:pb-0 lg:pr-0 gap-10">
+        <div class="flex flex-col w-full lg:w-3/5 justify-center">
+            <h1 class="font-['Hanson'] text-4xl lg:text-5xl">LET'S TALK,</h1>
+            <h1 class="font-['Hanson'] text-4xl lg:text-5xl mb-4"">BUT YOU FIRST.</h1>
             <form action="contactform.php" method="post" class="w-full flex flex-col">
                 <p class="font-['Times_New_Roman']">Your name</p>
-                <input type="text" name="name" class="bg-[#EEEEEE] rounded mb-4 w-1/2 h-8">
+                <input type="text" name="name" class="bg-[#EEEEEE] rounded mb-4 lg:w-2/3 h-12 lg:h-8">
                 <p class="font-['Times_New_Roman']">Your e-mail address</p>
-                <input type="text" name="mail" class="bg-[#EEEEEE] rounded mb-4 w-1/2 h-8">
+                <input type="text" name="mail" class="bg-[#EEEEEE] rounded mb-4 lg:w-2/3 h-12 lg:h-8">
                 <p class="font-['Times_New_Roman']">Your message</p>
-                <textarea name="message" class="bg-[#EEEEEE] rounded h-24 resize-none mb-4"></textarea>
-                <button type="submit" name="submit" class="bg-black text-white px-4 py-3 font-['Times_New_Roman'] h-fit w-fit">Submit</button>
+                <textarea name="message" class="bg-[#EEEEEE] rounded h-32 lg:h-24 resize-none mb-4"></textarea>
+                <button type="submit" name="submit" class="bg-black text-white px-4 py-6 lg:py-3 text-2xl lg:text-xl font-['Times_New_Roman'] h-fit lg:w-fit w-full">Submit</button>
             </form>
         </div>
-        <div class="flex justify-center items-center">
+        <div class="justify-center items-center hidden lg:flex">
             <img src="assets/svgs/phone.svg" class="w-full" alt="title_image">
         </div>
     </div>
+    <script src="animation.js"></script>
 </body>
 </html>

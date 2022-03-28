@@ -8,18 +8,42 @@
     <title>Andres Kõljalg</title>
 </head>
 <body>
-    <div class="px-24 py-6 fixed">
+    <div id="menu" class="fixed h-screen w-screen justify-center items-center translate-x-full flex flex-col text-2xl font-['Times_New_Roman'] bg-white duration-500 ease-in-out lg:hidden">
+        <a href="/about.html">About</a>
+        <p class="w-fit">&#8226</p>
+        <a href="/projects.php">Projects</a>
+        <p class="w-fit">&#8226</p>
+        <a href="/journal.php">Journal</a>
+        <p class="w-fit">&#8226</p>
+        <a href="/contact.html" class="mb-6">Contact</a>
+        <div class="w-12 h-12 flex justify-center items-center" id="menuToggle">
+            <div class="w-12 fixed h-2 bg-black rotate-45"></div>
+            <div class="w-12 fixed h-2 bg-black -rotate-45"></div>
+        </div>
+    </div>
+    <header class="flex lg:hidden h-16 py-2 px-6 sm:px-12 md:px-24 justify-between -translate-y-full ease-in-out duration-700 delay-300" id="fade">
+        <img src="assets/svgs/ak_mainlogotitle.svg" alt="ak_mainlogotitle">
+        <div class="w-12 flex justify-between py-3 pl-3 items-end flex-col" id="menuToggle">
+            <div class="h-1/6 w-1/3 bg-black"></div>
+            <div class="h-1/6 w-2/3 bg-black"></div>
+            <div class="h-1/6 w-full bg-black"></div>
+        </div>
+    </header>
+    <div class="hidden lg:block w-fit px-24 py-2">
         <a href="index.html"><h1 class="font-['Hanson'] text-3xl">BACK</h1></a>  
     </div>
-    <div class="flex h-screen w-screen p-24 gap-10">
-        <div class="flex flex-col w-3/5 justify-center">
-            <img src="assets/svgs/ak_mainlogotitle.svg" class="w-[24rem] mb-4" alt="ak_mainlogotitle">
+    <div class="flex flex-col p-6 sm:p-12 md:p-24 lg:py-[15vh] gap-10 lg:flex-row-reverse">
+        <div class="flex justify-center items-center">
+            <img src="assets/images/kg.png" class="w-full lg:w-full" alt="title_image">
+        </div>
+        <div class="flex flex-col justify-center lg:w-5/6">
+            <img src="assets/svgs/ak_mainlogotitle.svg" class="mb-4 w-full lg:w-1/2" alt="ak_mainlogotitle">
             <div class="w-full text-[18px] font-['Times_New_Roman']">
                 <p class="mb-4">... is a photographer/designer/creative director born&raised in Odessa, Ukraine now living in Estonia.</p>
                 <p class="mb-4">I've spent most of the past 5 years of my life behind the lens, shooting people, action sports and cars
                     I launched my own skateboarding magazine with my photos, articles, color managing and design,
                     which is the only one in the Baltics. On the personal level, I am all about smiles.</p> 
-                <p class="mb-4">
+                <p class="mb-24 lg:mb-0">
                     On my free time you can find me behind a steering wheel of old-school cars,
                     on a skateboard or behind the lens. Im also really passionate about music. For me, a day doesn't go
                     by without digging through the deepest part of the internet for some "hidden" gems. If you skate, 
@@ -27,9 +51,7 @@
                 </p>
             </div>
         </div>
-        <div class="flex justify-center items-center">
-            <img src="assets/images/kg.png" class="w-full" alt="title_image">
-        </div>
     </div>
+    <script src="animation.js"></script>
 </body>
 </html>
