@@ -1,12 +1,12 @@
-const element = document.querySelectorAll('[id=fade]');
+const slide = document.querySelectorAll('[id=slide]');
 const menuToggle = document.querySelectorAll('[id=menuToggle]');
-let menuToggled = false;
 const menu = document.getElementById('menu');
+let menuToggled = false;
 
 window.onload = function(){
-    element.forEach((el) => {
+    slide.forEach((el) => {
         el.style.opacity = 1;
-        el.classList.remove("translate-x-full", "-translate-y-full");
+        el.classList.remove("translate-x-full", "-translate-y-full", "translate-y-[100vh]", "translate-x-[100vw]");
     });
 }
 
