@@ -8,8 +8,8 @@
     <title>Andres Kõljalg</title>
 </head>
 <body>
-    <div class="px-24 py-6 fixed">
-        <a href="index.html"><h1 class="font-['Hanson'] text-3xl">BACK</h1></a>
+    <div class="hidden lg:block w-fit px-24 py-2">
+        <a href="/index.html"><h1 class="font-['Hanson'] text-3xl">BACK</h1></a>  
     </div>
     <div class="flex h-screen w-screen pl-24 py-24 items-center">
         <div class="flex flex-col px-12 justify-center">
