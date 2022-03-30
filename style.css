@@ -794,6 +794,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 1.5rem;
 }
 
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .pl-24 {
   padding-left: 6rem;
 }
@@ -899,6 +904,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 @media (min-width: 1024px) {
+  .lg\:mb-24 {
+    margin-bottom: 6rem;
+  }
+
+  .lg\:mb-0 {
+    margin-bottom: 0px;
+  }
+
   .lg\:block {
     display: block;
   }
