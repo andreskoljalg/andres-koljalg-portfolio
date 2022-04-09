@@ -71,224 +71,162 @@
     <div class="hidden lg:block px-12 xl:px-24 py-8 w-fit">
         <a href="/index.html"><h1 class="font-['Hanson'] text-3xl">BACK</h1></a>  
     </div>
-    <div class="flex flex-col h-screen w-full p-2 lg:py-24 lg:px-12 xl:px-24">
-        <div class="flex flex-col justify-around h-full">
-            <div class="flex flex-col">
-                <a href="#photography" class="font-['Times_New_Roman'] text-[10vw] md:text-8xl lg:text-9xl mb-8 lg:mb-4 w-fit">01 Photography</a>
-                <a href="#design" class="font-['Hanson'] text-[10vw] md:text-8xl lg:text-9xl mb-8 lg:mb-4 w-fit">02 DESIGN</a>
-                <a href="#other" class="font-['AppleChancery'] text-[10vw] md:text-8xl lg:text-9xl mb-8 lg:mb-4 w-fit">03 other</a>
-            </div>
-            <div>
-                <i class="fa fa-chevron-down text-5xl flex justify-center"></i>
-            </div>
-        </div>
-    </div>
-    <div>
-   <!-- ####################
-        01 PHOTOGRAPHY TITLE
-        #################### -->
-        <div class="flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end">
-            <img src="assets/svgs/01_photography_title.svg" id="photography" class="w-5/6 lg:w-3/6" alt="photography_title">
-        </div>
-
-        <!-- ### PHOTOGRAPHY PROJECT BLOCK ### -->
-        <div class="p-0 lg:pl-12 xl:pl-24 mb-32 lg:flex lg:gap-10">
-            <div class="col-span-2">
-                <a href="<?php
-                    addPhotographyIndex();
-                    $files = scandir("projects/photography");
-                    echo 'projects/photography/' . $files[$photographyIndex] . '/info.php';
-                ?>"><h1 class="font-['Hanson'] text-[10vw] sm:text-5xl md:text-6xl p-2">A-CLASS SEDAN</h1></a>
-                <div class="p-2 text-xl font-['Times_New_Roman']">
-                    <p class="mb-4">
-                        First time a car was given to me!
-                    </p>
-                    <p class="mb-4">
-                        A-Class sedan, “cheapest” new Mercedes, still nice though. 
-                    </p>
-                    <p class="mb-4">
-                        Drove around Tallinn with my friend Frank and took some photos. Weather wasn't that nice, 
-                        but it played out well. Dark clouds added some nice characteristics to the pictures.
-                    </p>
-                    <p class="mb-4">
-                        04.05.2020
-                    </p>
+    <div class="translate-y-[100vh] duration-700 delay-300 ease-in-out lg:translate-y-0" id="slide">
+        <div class="flex flex-col h-screen w-full p-2 lg:pb-24 lg:px-12 xl:px-24">
+            <div class="flex flex-col justify-around h-fit gap-10">
+                <div class="flex flex-col gap-10 mt-24 sm:mt-12 lg:m-0 xl:mt-12">
+                    <a href="#photography">
+                        <img src="assets/svgs/01_photography_title.svg" class="w-4/6 sm:w-1/2 lg:w-2/6 xl:w-3/12 2xl:w-4/12" alt="photography_title">
+                    </a>
+                    <a href="#design">
+                        <img src="assets/svgs/02_design_title.svg" class="w-4/6 sm:w-1/2 lg:w-2/6 xl:w-3/12 2xl:w-4/12" alt="design_title">
+                    </a>
+                    <a href="#other">
+                        <img src="assets/svgs/03_other_title.svg" class="w-4/6 sm:w-1/2 lg:w-2/6 xl:w-3/12 2xl:w-4/12" alt="other_title">
+                    </a>
+                </div>
+                <div class="mt-24 sm:mt-12 lg:m-0 xl:mt-12">
+                    <a href="#photography"><i class="fa fa-chevron-down text-5xl flex justify-center"></i></a>
                 </div>
             </div>
-            <a href="<?php $files = scandir("projects/photography"); echo 'projects/photography/' . $files[$photographyIndex] . '/info.php';?>" class="lg:h-[36rem] flex overflow-x-scroll">
-                <?php
-                    imgLoad("projects/photography/", $photographyIndex);
-                ?>
-            </a>
         </div>
-
-        <!-- ### PHOTOGRAPHY PROJECT BLOCK ### -->
-        <div class="p-0 lg:pl-12 xl:pl-24 mb-32 lg:flex lg:gap-10">
-            <div class="col-span-2">
-                <a href="<?php
-                    addPhotographyIndex();
-                    $files = scandir("projects/photography");
-                    echo 'projects/photography/' . $files[$photographyIndex] . '/info.php';
-                ?>"><h1 class="font-['Hanson'] text-[10vw] sm:text-5xl md:text-6xl p-2">TOYOTA YARIS GR</h1></a>
-                <div class="p-2 text-xl font-['Times_New_Roman']">
-                    <p class="mb-4">
-                        This one is really special to me.
-                        Behind the steering wheel is my best friend Karl-Erik Idasaar, and we did a small 
-                        video shoot in Hara. Hara is Karl's favorite place to drive in Estonia.
-                    </p>
-                    <p class="mb-4">
-                        Unfortunately, Karl passed away a few weeks after this, so this was his last 
-                        time at Hara. I'm happy to say that he absolutely sent it.
-                    </p>
-                    <p class="mb-4">
-                        Hara, Estonia
-                        30.09.2021
-                    </p>
-                </div>
+        <div>
+       <!-- ####################
+            01 PHOTOGRAPHY TITLE
+            #################### -->
+            <div class="flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end">
+                <img src="assets/svgs/01_photography_title.svg" id="photography" class="w-4/6 lg:w-3/6" alt="photography_title">
             </div>
-            <a href="<?php $files = scandir("projects/photography"); echo 'projects/photography/' . $files[$photographyIndex] . '/info.php';?>" class="lg:h-[36rem] flex overflow-x-scroll">
-                <?php
-                    imgLoad("projects/photography/", $photographyIndex);
-                ?>
-            </a>
-        </div>
 
-   <!-- ####################
-        02 DESIGN TITLE
-        #################### -->
-        <div class="flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end">
-            <img src="assets/svgs/02_design_title.svg" id="design" class="w-5/6 lg:w-3/6" alt="">
-        </div>
-
-        <!-- ### DESIGN PROJECT BLOCK ### -->
-        <div class="p-0 lg:pl-12 xl:pl-24 mb-32 lg:flex lg:gap-10">
-            <div class="col-span-2">
-                <a href="<?php
-                    addDesignIndex();
-                    $files = scandir("projects/design");
-                    echo 'projects/design/' . $files[$designIndex] . '/info.php';
-                ?>"><h1 class="font-['Hanson'] text-[10vw] sm:text-5xl md:text-6xl p-2">A-CLASS SEDAN</h1></a>
-                <div class="p-2 text-xl font-['Times_New_Roman']">
-                    <p class="mb-4">
-                        First time a car was given to me!
-                    </p>
-                    <p class="mb-4">
-                        A-Class sedan, “cheapest” new Mercedes, still nice though. 
-                    </p>
-                    <p class="mb-4">
-                        Drove around Tallinn with my friend Frank and took some photos. Weather wasn't that nice, 
-                        but it played out well. Dark clouds added some nice characteristics to the pictures.
-                    </p>
-                    <p class="mb-4">
-                        04.05.2020
-                    </p>
+            <!-- ### PHOTOGRAPHY PROJECT BLOCK ### -->
+            <div class="p-0 lg:pl-12 xl:pl-24 mb-32 lg:flex lg:gap-5">
+                <div class="lg:w-4/12">
+                    <a href="<?php addPhotographyIndex(); $files = scandir("projects/photography"); echo 'projects/photography/' . $files[$photographyIndex] . '/info.php';?>">
+                    <h1 class="font-['Hanson'] text-[10vw] sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl p-2">A-CLASS SEDAN</h1></a>
+                    <div class="px-2 pb-2 text-xl font-['Times_New_Roman']">
+                        <p class="mb-4">
+                            First time a car was given to me!
+                        </p>
+                        <p class="mb-4">
+                            A-Class sedan, “cheapest” new Mercedes, still nice though. 
+                        </p>
+                        <p class="mb-4">
+                            Drove around Tallinn with my friend Frank and took some photos. Weather wasn't that nice, 
+                            but it played out well. Dark clouds added some nice characteristics to the pictures.
+                        </p>
+                        <p class="mb-4">
+                            04.05.2020
+                        </p>
+                    </div>
                 </div>
+                <a href="<?php $files = scandir("projects/photography"); echo 'projects/photography/' . $files[$photographyIndex] . '/info.php';?>" class="lg:h-[36rem] flex overflow-x-scroll lg:w-8/12">
+                    <?php
+                        imgLoad("projects/photography/", $photographyIndex);
+                    ?>
+                </a>
             </div>
-            <a href="<?php $files = scandir("projects/design"); echo 'projects/design/' . $files[$designIndex] . '/info.php';?>" class="lg:h-[36rem] flex overflow-x-scroll">
-                <?php
-                    imgLoad("projects/design/", $designIndex);
-                ?>
-            </a>
-        </div>
 
-        <!-- ### DESIGN PROJECT BLOCK ### -->
-        <div class="p-0 lg:pl-12 xl:pl-24 mb-32 lg:flex lg:gap-10">
-            <div class="col-span-2">
-                <a href="<?php
-                    addDesignIndex();
-                    $files = scandir("projects/design");
-                    echo 'projects/design/' . $files[$designIndex] . '/info.php';
-                ?>"><h1 class="font-['Hanson'] text-[10vw] sm:text-5xl md:text-6xl p-2">TOYOTA YARIS GR</h1></a>
-                <div class="p-2 text-xl font-['Times_New_Roman']">
-                    <p class="mb-4">
-                        This one is really special to me.
-                        Behind the steering wheel is my best friend Karl-Erik Idasaar, and we did a small 
-                        video shoot in Hara. Hara is Karl's favorite place to drive in Estonia.
-                    </p>
-                    <p class="mb-4">
-                        Unfortunately, Karl passed away a few weeks after this, so this was his last 
-                        time at Hara. I'm happy to say that he absolutely sent it. 
-                    </p>
-                    <p class="mb-4">
-                        Hara, Estonia
-                        30.09.2021
-                    </p>
+            <!-- ### PHOTOGRAPHY PROJECT BLOCK ### -->
+            <div class="p-0 lg:pl-12 xl:pl-24 mb-32 lg:flex lg:gap-5">
+                <div class="lg:w-4/12">
+                    <a href="<?php addPhotographyIndex(); $files = scandir("projects/photography"); echo 'projects/photography/' . $files[$photographyIndex] . '/info.php';?>">
+                    <h1 class="font-['Hanson'] text-[10vw] sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl p-2">TOYOTA YARIS GR</h1></a>
+                    <div class="px-2 pb-2 text-xl font-['Times_New_Roman']">
+                        <p class="mb-4">
+                            This one is really special to me.
+                            Behind the steering wheel is my best friend Karl-Erik Idasaar, and we did a small 
+                            video shoot in Hara. Hara is Karl's favorite place to drive in Estonia.
+                        </p>
+                        <p class="mb-4">
+                            Unfortunately, Karl passed away a few weeks after this, so this was his last 
+                            time at Hara. I'm happy to say that he absolutely sent it.
+                        </p>
+                        <p class="mb-4">
+                            Drove around Tallinn with my friend Frank and took some photos. Weather wasn't that nice, 
+                            but it played out well. Dark clouds added some nice characteristics to the pictures.
+                        </p>
+                        <p class="mb-4">
+                            Hara, Estonia
+                            30.09.2021
+                        </p>
+                    </div>
                 </div>
+                <a href="<?php $files = scandir("projects/photography"); echo 'projects/photography/' . $files[$photographyIndex] . '/info.php';?>" class="lg:h-[36rem] flex overflow-x-scroll lg:w-8/12">
+                    <?php
+                        imgLoad("projects/photography/", $photographyIndex);
+                    ?>
+                </a>
             </div>
-            <a href="<?php $files = scandir("projects/design"); echo 'projects/design/' . $files[$designIndex] . '/info.php';?>" class="lg:h-[36rem] flex overflow-x-scroll">
-                <?php
-                    imgLoad("projects/design/", $designIndex);
-                ?>
-            </a>
-        </div>
 
-   <!-- ####################
-        03 OTHER TITLE
-        #################### -->
-        <div class="flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end">
-            <img src="assets/svgs/03_other_title.svg" id="other" class="w-5/6 lg:w-3/6" alt="">
-        </div>
-        
-        <!-- ### OTHER PROJECT BLOCK ### -->
-        <div class="p-0 lg:pl-12 xl:pl-24 mb-32 lg:flex lg:gap-10">
-            <div class="col-span-2">
-                <a href="<?php
-                    addOtherIndex();
-                    $files = scandir("projects/other");
-                    echo 'projects/other/' . $files[$otherIndex] . '/info.php';
-                ?>"><h1 class="font-['Hanson'] text-[10vw] sm:text-5xl md:text-6xl p-2">A-CLASS SEDAN</h1></a>
-                <div class="p-2 text-xl font-['Times_New_Roman']">
-                    <p class="mb-4">
-                        First time a car was given to me!
-                    </p>
-                    <p class="mb-4">
-                        A-Class sedan, “cheapest” new Mercedes, still nice though. 
-                    </p>
-                    <p class="mb-4">
-                        Drove around Tallinn with my friend Frank and took some photos. Weather wasn't that nice, 
-                        but it played out well. Dark clouds added some nice characteristics to the pictures.
-                    </p>
-                    <p class="mb-4">
-                        04.05.2020
-                    </p>
-                </div>
+       <!-- ####################
+            02 DESIGN TITLE
+            #################### -->
+            <div class="flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end">
+                <img src="assets/svgs/02_design_title.svg" id="design" class="w-4/6 lg:w-3/6" alt="">
             </div>
-            <a href="<?php $files = scandir("projects/other"); echo 'projects/other/' . $files[$otherIndex] . '/info.php';?>" class="lg:h-[36rem] flex overflow-x-scroll">
-                <?php
-                    imgLoad("projects/other/", $otherIndex);
-                ?>
-            </a>
-        </div>
 
-        <!-- ### OTHER PROJECT BLOCK ### -->
-        <div class="p-0 lg:pl-12 xl:pl-24 mb-32 lg:flex lg:gap-10">
-            <div class="col-span-2">
-                <a href="<?php
-                    addOtherIndex();
-                    $files = scandir("projects/other");
-                    echo 'projects/other/' . $files[$otherIndex] . '/info.php';
-                ?>"><h1 class="font-['Hanson'] text-[10vw] sm:text-5xl md:text-6xl p-2">TOYOTA YARIS GR</h1></a>
-                <div class="p-2 text-xl font-['Times_New_Roman']">
-                    <p class="mb-4">
-                        This one is really special to me.
-                        Behind the steering wheel is my best friend Karl-Erik Idasaar, and we did a small 
-                        video shoot in Hara. Hara is Karl's favorite place to drive in Estonia. 
-                    </p>
-                    <p class="mb-4">
-                        Unfortunately, Karl passed away a few weeks after this, so this was his last 
-                        time at Hara. I'm happy to say that he absolutely sent it. 
-                    </p>
-                    <p class="mb-4">
-                        Hara, Estonia
-                        30.09.2021
-                    </p>
+            <!-- ### DESIGN PROJECT BLOCK ### -->
+            <div class="p-0 lg:pl-12 xl:pl-24 mb-32 lg:flex lg:gap-5">
+                <div class="lg:w-4/12">
+                    <a href="<?php addDesignIndex(); $files = scandir("projects/design"); echo 'projects/design/' . $files[$designIndex] . '/info.php';?>">
+                    <h1 class="font-['Hanson'] text-[10vw] sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl p-2">A-CLASS SEDAN</h1></a>
+                    <div class="px-2 pb-2 text-xl font-['Times_New_Roman']">
+                        <p class="mb-4">
+                            First time a car was given to me!
+                        </p>
+                        <p class="mb-4">
+                            A-Class sedan, “cheapest” new Mercedes, still nice though. 
+                        </p>
+                        <p class="mb-4">
+                            Drove around Tallinn with my friend Frank and took some photos. Weather wasn't that nice, 
+                            but it played out well. Dark clouds added some nice characteristics to the pictures.
+                        </p>
+                        <p class="mb-4">
+                            04.05.2020
+                        </p>
+                    </div>
                 </div>
+                <a href="<?php $files = scandir("projects/design"); echo 'projects/design/' . $files[$designIndex] . '/info.php';?>" class="lg:h-[36rem] flex overflow-x-scroll lg:w-8/12">
+                    <?php
+                        imgLoad("projects/design/", $designIndex);
+                    ?>
+                </a>
             </div>
-            <a href="<?php $files = scandir("projects/other"); echo 'projects/other/' . $files[$otherIndex] . '/info.php';?>" class="lg:h-[36rem] flex overflow-x-scroll">
-                <?php
-                    imgLoad("projects/other/", $otherIndex);
-                ?>
-            </a>
+
+       <!-- ####################
+            03 OTHER TITLE
+            #################### -->
+            <div class="flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end">
+                <img src="assets/svgs/03_other_title.svg" id="other" class="w-4/6 lg:w-3/6" alt="">
+            </div>
+            
+            <!-- ### OTHER PROJECT BLOCK ### -->
+            <div class="p-0 lg:pl-12 xl:pl-24 mb-32 lg:flex lg:gap-5">
+                <div class="lg:w-4/12">
+                    <a href="<?php addOtherIndex(); $files = scandir("projects/other"); echo 'projects/other/' . $files[$otherIndex] . '/info.php';?>">
+                    <h1 class="font-['Hanson'] text-[10vw] sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl p-2">A-CLASS SEDAN</h1></a>
+                    <div class="px-2 pb-2 text-xl font-['Times_New_Roman']">
+                        <p class="mb-4">
+                            First time a car was given to me!
+                        </p>
+                        <p class="mb-4">
+                            A-Class sedan, “cheapest” new Mercedes, still nice though. 
+                        </p>
+                        <p class="mb-4">
+                            Drove around Tallinn with my friend Frank and took some photos. Weather wasn't that nice, 
+                            but it played out well. Dark clouds added some nice characteristics to the pictures.
+                        </p>
+                        <p class="mb-4">
+                            04.05.2020
+                        </p>
+                    </div>
+                </div>
+                <a href="<?php $files = scandir("projects/other"); echo 'projects/other/' . $files[$otherIndex] . '/info.php';?>" class="lg:h-[36rem] flex overflow-x-scroll lg:w-8/12">
+                    <?php
+                        imgLoad("projects/other/", $otherIndex);
+                    ?>
+                </a>
+            </div>
         </div>
     </div>
 
