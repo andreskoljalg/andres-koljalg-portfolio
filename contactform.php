@@ -8,6 +8,10 @@ if (isset($_POST['submit'])) {
     $mailTo = "server@tak21fredyait.itmajakas.ee";
     $headers = "From ".$name." at ".$mailFrom.". Sent using portfolio contact form.";
 
-    mail($mailTo, $subject, $message, $headers);
-    header("Location: contact.html");
+    if (empty($name)) {
+        mail($mailTo, $subject, $message, $headers);
+        header("Location: contact.html");
+    } else {
+        header("Location: index.html");
+    }
 }
