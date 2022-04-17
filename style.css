@@ -582,10 +582,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: fit-content;
 }
 
-.h-\[36rem\] {
-  height: 36rem;
-}
-
 .w-screen {
   width: 100vw;
 }
@@ -793,11 +789,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 6rem;
 }
 
-.py-6 {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
 .pl-24 {
   padding-left: 6rem;
 }
@@ -894,10 +885,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding: 3rem;
   }
 
-  .sm\:p-10 {
-    padding: 2.5rem;
-  }
-
   .sm\:p-8 {
     padding: 2rem;
   }
@@ -956,10 +943,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:h-\[36rem\] {
     height: 36rem;
-  }
-
-  .lg\:h-\[\] {
-    height: ;
   }
 
   .lg\:w-8\/12 {
@@ -1117,10 +1100,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .\32xl\:w-4\/12 {
     width: 33.333333%;
-  }
-
-  .\32xl\:p-24 {
-    padding: 6rem;
   }
 
   .\32xl\:px-24 {
