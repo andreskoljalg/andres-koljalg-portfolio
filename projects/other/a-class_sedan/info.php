@@ -33,7 +33,7 @@
     <div class="hidden lg:block px-12 2xl:px-24 py-8 w-fit">
         <a href="/projects.php"><h1 class="font-['Hanson'] text-3xl">BACK</h1></a>  
     </div>
-    <div class="flex flex-col-reverse lg:flex-col">
+    <div class="flex flex-col-reverse lg:flex-col translate-y-[100vh] duration-700 delay-300 ease-in-out lg:translate-y-0" id="slide">
         <div class="lg:flex lg:overflow-x-scroll lg:h-[36rem]">
                 <?php
                     $dir = "./";
