@@ -582,6 +582,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: fit-content;
 }
 
+.h-\[10rem\] {
+  height: 10rem;
+}
+
+.h-\[16rem\] {
+  height: 16rem;
+}
+
+.h-\[32rem\] {
+  height: 32rem;
+}
+
 .w-screen {
   width: 100vw;
 }
@@ -789,6 +801,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 6rem;
 }
 
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
 .pl-24 {
   padding-left: 6rem;
 }
@@ -803,6 +825,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .font-\[\'Hanson\'\] {
   font-family: 'Hanson';
+}
+
+.font-\[\'\] {
+  font-family: ';
 }
 
 .text-3xl {
@@ -837,6 +863,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .text-\[10vw\] {
   font-size: 10vw;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .text-white {
@@ -1028,6 +1059,11 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding-bottom: 3rem;
   }
 
+  .lg\:py-24 {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
   .lg\:pl-12 {
     padding-left: 3rem;
   }
@@ -1036,9 +1072,23 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding-bottom: 6rem;
   }
 
+  .lg\:pl-24 {
+    padding-left: 6rem;
+  }
+
   .lg\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+
+  .lg\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+
+  .lg\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
   }
 }
 
