@@ -74,15 +74,15 @@
     <div class="translate-y-[100vh] duration-700 delay-300 ease-in-out lg:translate-y-0" id="slide">
         <div class="flex flex-col h-screen w-full p-2 lg:pb-24 lg:px-12 xl:px-24">
             <div class="flex flex-col justify-around h-fit gap-10">
-                <div class="flex flex-col gap-10 mt-24 sm:mt-12 lg:m-0 xl:mt-12">
+                <div class="flex flex-col gap-10 mt-20 sm:mt-12 lg:m-0 xl:mt-12">
                     <a href="#photography">
-                        <img src="assets/svgs/01_photography_title.svg" class="w-4/6 sm:w-1/2 lg:w-2/6 xl:w-3/12 2xl:w-4/12" alt="photography_title">
+                        <img src="assets/svgs/01_photography_title.svg" class="w-[65vw] sm:w-1/2 md:w-1/3 xl:w-1/4 max-w-md" alt="photography_title">
                     </a>
                     <a href="#design">
-                        <img src="assets/svgs/02_design_title.svg" class="w-4/6 sm:w-1/2 lg:w-2/6 xl:w-3/12 2xl:w-4/12" alt="design_title">
+                        <img src="assets/svgs/02_design_title.svg" class="w-[75vw] sm:w-8/12 md:w-6/12 xl:w-5/12 max-w-md" alt="design_title">
                     </a>
                     <a href="#other">
-                        <img src="assets/svgs/03_other_title.svg" class="w-4/6 sm:w-1/2 lg:w-2/6 xl:w-3/12 2xl:w-4/12" alt="other_title">
+                        <img src="assets/svgs/03_other_title.svg" class="w-[50vw] sm:w-6/12 md:w-4/12 xl:w-3/12 max-w-md" alt="other_title">
                     </a>
                 </div>
                 <div class="mt-24 sm:mt-12 lg:m-0 xl:mt-12">
@@ -94,8 +94,11 @@
        <!-- ####################
             01 PHOTOGRAPHY TITLE
             #################### -->
-            <div class="flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end">
+            <div class="hidden lg:flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end">
                 <img src="assets/svgs/01_photography_title.svg" id="photography" class="w-4/6 lg:w-3/6" alt="photography_title">
+            </div>
+            <div class="flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end lg:hidden">
+                <img src="assets/svgs/01_photography_mobile.svg" id="photography" class="w-4/6" alt="photography_title">
             </div>
 
             <!-- ### PHOTOGRAPHY PROJECT BLOCK ### -->
@@ -161,8 +164,11 @@
        <!-- ####################
             02 DESIGN TITLE
             #################### -->
-            <div class="flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end">
+            <div class="hidden lg:flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end">
                 <img src="assets/svgs/02_design_title.svg" id="design" class="w-4/6 lg:w-3/6" alt="">
+            </div>
+            <div class="flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end lg:hidden">
+                <img src="assets/svgs/02_design_mobile.svg" id="design" class="w-4/6" alt="">
             </div>
 
             <!-- ### DESIGN PROJECT BLOCK ### -->
@@ -196,8 +202,11 @@
        <!-- ####################
             03 OTHER TITLE
             #################### -->
-            <div class="flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end">
+            <div class="hidden lg:flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end">
                 <img src="assets/svgs/03_other_title.svg" id="other" class="w-4/6 lg:w-3/6" alt="">
+            </div>
+            <div class="flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end lg:hidden">
+                <img src="assets/svgs/03_other_mobile.svg" id="other" class="w-4/6" alt="">
             </div>
             
             <!-- ### OTHER PROJECT BLOCK ### -->
