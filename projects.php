@@ -69,7 +69,7 @@
         </div>
     </header>
     <div class="hidden lg:block px-12 xl:px-24 py-8 w-fit">
-        <a href="/index.html"><h1 class="font-['Hanson'] text-3xl">BACK</h1></a>  
+        <a href="/index0.html"><h1 class="font-['Hanson'] text-3xl">BACK</h1></a>  
     </div>
     <div class="translate-y-[100vh] duration-700 delay-300 ease-in-out lg:translate-y-0" id="slide">
         <div class="flex flex-col h-screen w-full p-2 lg:pb-24 lg:px-12 xl:px-24">

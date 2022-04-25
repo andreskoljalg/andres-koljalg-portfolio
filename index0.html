@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Andres Kõljalg</title>
 </head>
-<body>
+<body class="overflow-y-hidden">
     <div id="menu" class="fixed h-screen w-screen justify-center items-center translate-x-full flex flex-col text-3xl font-['Times_New_Roman'] lg:hidden bg-white duration-700 ease-in-out">
         <a href="/about.html">About</a>
         <p class="w-fit">&#8226</p>
@@ -29,12 +29,26 @@
             <div class="h-1/6 w-full bg-black"></div>
         </div>
     </header>
-    <div class="hidden lg:block px-12 py-8 w-fit">
-        <a href="/index0.html"><h1 class="font-['Hanson'] text-3xl">BACK</h1></a>  
+    <div class="p-[10vw] sm:px-[18vw] sm:py-[5vw] flex flex-col items-center duration-700 delay-300 ease-in-out translate-y-[100vh] lg:hidden" id="slide">
+        <img src="/assets/images/title_image_rotated.png" class="w-[50vh] mb-8" alt="title_image_rotated">
+        <a href="/contact.html" class="font-['Times_New_Roman'] text-2xl w-fit">hello@andreskoljalg.com</a>
     </div>
-    <div class="flex flex-col justify-center h-[75vh] items-center text-center">
-        <h1 class="font-['Hanson'] text-5xl xl:text-8xl mb-12">THANK YOU!</h1>
-        <a href="/index.html" class="font-['Times_New_Roman'] text-xl xl:text-4xl underline">return home</a>
+    <div class="hidden lg:flex justify-center gap-20 h-screen items-center p-12">
+        <div class="w-fit">
+            <img src="assets/svgs/ak_mainlogotitle.svg" alt="ak_mainlogotitle">
+            <div class="flex gap-2 justify-between text-3xl xl:text-4xl font-['Times_New_Roman']">
+                <a href="/about.html">About</a>
+                <p class="w-fit">&#8226</p>
+                <a href="/projects.php">Projects</a>
+                <p class="w-fit">&#8226</p>
+                <a href="/journal.php">Journal</a>
+                <p class="w-fit">&#8226</p>
+                <a href="/contact.html">Contact</a>
+            </div>
+        </div>
+        <div>
+            <img src="assets/images/title_image.png" alt="title_image">
+        </div>
     </div>
     <script src="animation.js"></script>
 </body>

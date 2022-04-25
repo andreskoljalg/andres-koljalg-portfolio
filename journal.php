@@ -30,7 +30,7 @@
         </div>
     </header>
     <div class="hidden lg:block px-12 xl:px-24 py-8 w-fit">
-        <a href="/index.html"><h1 class="font-['Hanson'] text-3xl">BACK</h1></a>  
+        <a href="/index0.html"><h1 class="font-['Hanson'] text-3xl">BACK</h1></a>  
     </div>
     <div class="flex flex-col lg:flex-row lg:pl-24 py-20 items-center">
         <div class="flex flex-col px-12 justify-center items-center mb-8">
