@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Andres Kõljalg</title>
 </head>
-<body>
+<body class="duration-500 ease-in-out opacity-0">
     <?php
         $photographyIndex = 1;
         $designIndex = 1;
@@ -48,20 +48,20 @@
         }
     ?>
     <div id="menu" class="fixed h-screen w-screen justify-center items-center translate-x-full flex flex-col text-3xl font-['Times_New_Roman'] lg:hidden bg-white duration-700 ease-in-out">
-        <a href="/about.html">About</a>
+        <a href="javascript:delay('/about.html')">About</a>
         <p class="w-fit">&#8226</p>
-        <a href="/projects.php">Projects</a>
+        <a href="javascript:delay('/projects.php')">Projects</a>
         <p class="w-fit">&#8226</p>
-        <a href="/journal.php">Journal</a>
+        <a href="javascript:delay('/journal.php')">Journal</a>
         <p class="w-fit">&#8226</p>
-        <a href="/contact.html" class="mb-6">Contact</a>
+        <a href="javascript:delay('/contact.html')" class="mb-6">Contact</a>
         <div class="w-12 h-12 flex justify-center items-center" id="menuToggle">
             <div class="w-12 fixed h-2 bg-black rotate-45"></div>
             <div class="w-12 fixed h-2 bg-black -rotate-45"></div>
         </div>
     </div>
     <header class="flex h-16 justify-between p-2 -translate-y-full ease-in-out duration-700 delay-300 lg:hidden" id="slide">
-        <a href="/index.html" class="w-44"><img src="assets/svgs/ak_mainlogotitle.svg" class="h-full" alt="ak_mainlogotitle"></a>
+        <a href="javascript:delay('/index0.html')" class="w-44"><img src="assets/svgs/ak_mainlogotitle.svg" class="h-full" alt="ak_mainlogotitle"></a>
         <div class="w-12 flex justify-between items-end py-2 flex-col" id="menuToggle">
             <div class="h-1/6 w-1/3 bg-black"></div>
             <div class="h-1/6 w-2/3 bg-black"></div>
@@ -69,7 +69,7 @@
         </div>
     </header>
     <div class="hidden lg:block px-12 xl:px-24 py-8 w-fit">
-        <a href="/index0.html"><h1 class="font-['Hanson'] text-3xl">BACK</h1></a>  
+        <a href="javascript:delay('/index0.html')"><h1 class="font-['Hanson'] text-3xl">BACK</h1></a>  
     </div>
     <div class="translate-y-[100vh] duration-700 delay-300 ease-in-out lg:translate-y-0" id="slide">
         <div class="flex flex-col h-screen w-full p-2 lg:pb-24 lg:px-12 xl:px-24">
