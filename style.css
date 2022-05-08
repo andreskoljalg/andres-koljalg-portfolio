@@ -536,6 +536,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 1rem;
 }
 
+.mt-4 {
+  margin-top: 1rem;
+}
+
 .flex {
   display: flex;
 }
@@ -638,6 +642,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-4\/6 {
   width: 66.666667%;
+}
+
+.w-1\/2 {
+  width: 50%;
 }
 
 .max-w-xl {
