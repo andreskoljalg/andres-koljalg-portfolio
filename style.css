@@ -594,6 +594,62 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: fit-content;
 }
 
+.h-\[5vh\] {
+  height: 5vh;
+}
+
+.h-\[10vh\] {
+  height: 10vh;
+}
+
+.h-\[15vh\] {
+  height: 15vh;
+}
+
+.h-\[\] {
+  height: ;
+}
+
+.h-\[90vj\] {
+  height: 90vj;
+}
+
+.h-\[90vh\] {
+  height: 90vh;
+}
+
+.min-h-fit {
+  min-height: -webkit-fit-content;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
+}
+
+.min-h-\[\] {
+  min-height: ;
+}
+
+.min-h-\[90vh\] {
+  min-height: 90vh;
+}
+
+.min-h-min {
+  min-height: -webkit-min-content;
+  min-height: -moz-min-content;
+  min-height: min-content;
+}
+
+.min-h-\[600px\] {
+  min-height: 600px;
+}
+
+.min-h-\[650px\] {
+  min-height: 650px;
+}
+
+.min-h-\[550px\] {
+  min-height: 550px;
+}
+
 .w-screen {
   width: 100vw;
 }
@@ -995,6 +1051,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:h-\[36rem\] {
     height: 36rem;
+  }
+
+  .lg\:h-\[90vh\] {
+    height: 90vh;
   }
 
   .lg\:w-8\/12 {

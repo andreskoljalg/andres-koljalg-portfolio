@@ -29,24 +29,26 @@
             <div class="h-1/6 w-full bg-black"></div>
         </div>
     </header>
-    <div class="hidden lg:block px-12 xl:px-24 py-8 w-fit">
+    <div class="hidden lg:flex px-12 h-[10vh] items-center w-fit">
         <a href="javascript:delay('/index0.html')"><h1 class="font-['Hanson'] text-3xl">BACK</h1></a>  
     </div>
-    <div class="flex flex-col lg:flex-row lg:pl-24 py-20 items-center">
-        <div class="flex flex-col px-12 justify-center items-center mb-8">
-            <h1 class="font-['Hanson'] text-4xl lg:text-5xl">JOURNAL</h1>
-            <p class="font-['Times_New_Roman'] text-md text-xl">Moments from my everyday life.</p>
-        </div>
-        <div class="flex h-[30rem] overflow-x-scroll">
-            <?php
-                $dir = "assets/journal/";
-                $files = scandir($dir);
-                foreach($files as $file) {
-                    if($file !== "." && $file !== "..") {
-                        echo "<img src='$dir$file' class='h-full' loading='lazy' />";
+    <div class="translate-y-[100vh] duration-700 delay-300 ease-in-out lg:translate-y-0 lg:h-[90vh] flex items-center min-h-[550px]" id="slide">
+        <div class="flex flex-col lg:flex-row lg:pl-24 py-20 items-center">
+            <div class="flex flex-col px-12 justify-center items-center mb-8">
+                <h1 class="font-['Hanson'] text-4xl lg:text-5xl">JOURNAL</h1>
+                <p class="font-['Times_New_Roman'] text-md text-xl">Moments from my everyday life.</p>
+            </div>
+            <div class="flex h-[30rem] overflow-x-scroll">
+                <?php
+                    $dir = "assets/journal/";
+                    $files = scandir($dir);
+                    foreach($files as $file) {
+                        if($file !== "." && $file !== "..") {
+                            echo "<img src='$dir$file' class='h-full' loading='lazy' />";
+                        }
                     }
-                }
-            ?>
+                ?>
+            </div>
         </div>
     </div>
     <script src="animation.js"></script>
