@@ -160,6 +160,36 @@
                     ?>
                 </a>
             </div>
+            <div class="p-0 lg:pl-12 xl:pl-24 mb-32 lg:flex lg:gap-5">
+                <div class="lg:w-4/12">
+                    <a href="<?php addPhotographyIndex(); $files = scandir("projects/photography"); echo 'projects/photography/' . $files[$photographyIndex] . '/info.php';?>">
+                    <h1 class="font-['Hanson'] text-[10vw] sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl p-2">TOYOTA YARIS GR</h1></a>
+                    <div class="px-2 pb-2 text-xl font-['Times_New_Roman']">
+                        <p class="mb-4">
+                            This one is really special to me.
+                            Behind the steering wheel is my best friend Karl-Erik Idasaar, and we did a small 
+                            video shoot in Hara. Hara is Karl's favorite place to drive in Estonia.
+                        </p>
+                        <p class="mb-4">
+                            Unfortunately, Karl passed away a few weeks after this, so this was his last 
+                            time at Hara. I'm happy to say that he absolutely sent it.
+                        </p>
+                        <p class="mb-4">
+                            Drove around Tallinn with my friend Frank and took some photos. Weather wasn't that nice, 
+                            but it played out well. Dark clouds added some nice characteristics to the pictures.
+                        </p>
+                        <p class="mb-4">
+                            Hara, Estonia
+                            30.09.2021
+                        </p>
+                    </div>
+                </div>
+                <a href="<?php $files = scandir("projects/photography"); echo 'projects/photography/' . $files[$photographyIndex] . '/info.php';?>" class="lg:h-[36rem] flex overflow-x-scroll lg:w-8/12">
+                    <?php
+                        imgLoad("projects/photography/", $photographyIndex);
+                    ?>
+                </a>
+            </div>
 
        <!-- ####################
             02 DESIGN TITLE
