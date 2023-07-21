@@ -12,7 +12,7 @@ import MobileHeader from '../components/MobileHeader.vue';
         <div class="w-fit" id="slide">
             <img src="../assets/svgs/ak_mainlogotitle.svg" alt="ak_mainlogotitle" id="slide">
             <div class="flex gap-2 justify-between text-3xl xl:text-4xl font-['Times_New_Roman']">
-                <a href="javascript:delay('/about.html')">About</a>
+                <router-link to="/about">About</router-link>
                 <p class="w-fit">&#8226</p>
                 <a href="javascript:delay('/projects.php')">Projects</a>
                 <p class="w-fit">&#8226</p>
