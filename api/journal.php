@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
     <script type="module">
-    import { injectSpeedInsights } from 'https://cdn.jsdelivr.net/npm/@vercel/speed-insights';
-    injectSpeedInsights();
-</script>
     <title>Andres Kõljalg</title>
 </head>
 <body class="duration-500 ease-in-out opacity-0">

@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@vercel/speed-insights": "^1.0.0",
+    "@vercel/speed-insights": "^1.0.14",
     "tailwindcss": "^3.0.23"
   }
 }
