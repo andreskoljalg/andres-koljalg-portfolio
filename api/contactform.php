@@ -7,12 +7,12 @@ if (isset($_POST['submit'])) {
     $subject = "New message from portfolio";
     $mailFrom = $_POST['emanueladdresshaha'];
     $message = $_POST['message'];
-    $mailTo = "server@tak21fredyait.itmajakas.ee";
+    $mailTo = "andreskoljalg@icloud.com";
     $headers = "From ".$name." at ".$mailFrom.". Sent using portfolio contact form.";
 
     if (empty($honeyPotMail) && empty($honeyPotWebsite)) {
         mail($mailTo, $subject, $message, $headers);
-        header("Location: contact_confirmation.html");
+        header("Location: /public/contact_confirmation.html");
     } else {
         header("Location: index.html");
     }

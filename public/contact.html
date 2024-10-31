@@ -11,9 +11,9 @@
     <div id="menu" class="fixed h-screen w-screen justify-center items-center translate-x-full flex flex-col text-3xl font-['Times_New_Roman'] lg:hidden bg-white duration-700 ease-in-out">
         <a href="javascript:delay('/about.html')">About</a>
         <p class="w-fit">&#8226</p>
-        <a href="javascript:delay('/projects.php')">Projects</a>
+        <a href="javascript:delay('/api/projects.php')">Projects</a>
         <p class="w-fit">&#8226</p>
-        <a href="javascript:delay('/journal.php')">Journal</a>
+        <a href="javascript:delay('/api/journal.php')">Journal</a>
         <p class="w-fit">&#8226</p>
         <a href="javascript:delay('/contact.html')" class="mb-6">Contact</a>
         <div class="w-12 h-12 flex justify-center items-center" id="menuToggle">
@@ -30,15 +30,15 @@
         </div>
     </header>
     <div class="hidden lg:flex px-12 h-[10vh] items-center w-fit">
-        <a href="javascript:delay('/public/index0.html')"><h1 class="font-['Hanson'] text-3xl">BACK</h1></a>  
+        <a href="javascript:delay('/index0.html')"><h1 class="font-['Hanson'] text-3xl">BACK</h1></a>  
     </div>
     <div class="translate-y-[100vh] duration-700 delay-300 ease-in-out lg:translate-y-0 lg:h-[90vh] flex items-center min-h-[650px]" id="slide">
         <div class="flex flex-col lg:flex-row-reverse lg:pl-12">
             <div class="lg:w-1/2 xl:w-5/12 flex">
-                <img src="/public/assets/svgs/lets_talk_phone_title.svg" class="w-full max-w-xl lg:hidden" alt="lets_talk_phone_title">
-                <img src="/public/assets/svgs/phone.svg" class="w-full hidden lg:block" alt="phone">
+                <img src="/assets/svgs/lets_talk_phone_title.svg" class="w-full max-w-xl lg:hidden" alt="lets_talk_phone_title">
+                <img src="/assets/svgs/phone.svg" class="w-full hidden lg:block" alt="phone">
             </div>
-            <form action="contactform.php" method="post" class="lg:w-1/2 xl:w-7/12 px-8 lg:px-0">
+            <form action="/api/contactform.php" method="post" class="lg:w-1/2 xl:w-7/12 px-8 lg:px-0">
                 <h1 class="font-['Hanson'] text-5xl xl:text-6xl hidden lg:block mb-12">LET'S TALK, BUT YOU FIRST.</h1>
                 <p class="font-['Times_New_Roman'] text-xl">Your name</p>
                 <input type="text" name="name" class="bg-[#EEEEEE] rounded w-full h-12 mb-6 lg:w-1/2 2xl:w-5/12 px-2">
