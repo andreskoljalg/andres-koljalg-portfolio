@@ -5,7 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site In Progress</title>
     <style>
-        /* Reset and page background */
+        /* Import AppleChancery font */
+        @font-face {
+            font-family: 'AppleChancery';
+            src: url('/assets/fonts/apple_chancery.woff2') format('woff2'),
+                 url('/assets/fonts/apple_chancery.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        /* Page styling */
         body {
             margin: 0;
             overflow: hidden;
@@ -14,39 +23,50 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            font-family: Arial, sans-serif;
-            color: #333;
+            font-family: 'AppleChancery';
+            color: #000; /* Black text color */
             text-align: center;
         }
-        
+
+        h1, p {
+            margin: 0;
+        }
+
+        /* SVG wave styling */
         svg {
             width: 100vw;
-            height: 100vh;
+            height: 50vh; /* Set waves to cover half of the screen */
+            position: fixed;
+            bottom: 0;
         }
 
         use {
-            animation: move-forever 2s linear infinite;
-        }
-        
-        use:nth-child(2) {
-            animation-duration: 2.5s;
-            animation-delay: -1.5s;
-        }
-        
-        use:nth-child(1) {
-            animation-duration: 5s;
+            animation: move-slower 4s linear infinite;
+            fill: black; /* Black wave color */
         }
 
-        @keyframes move-forever {
-            0% { transform: translate(-2px , 0); }
-            100% { transform: translate(0px , 0); }
+        use:nth-child(2) {
+            animation-duration: 5s;
+            animation-delay: -2.5s;
+        }
+
+        use:nth-child(1) {
+            animation-duration: 7s;
+        }
+
+        @keyframes move-slower {
+            0% { transform: translateX(-2px); }
+            100% { transform: translateX(0px); }
         }
     </style>
 </head>
 <body>
     <div>
-        <h1>brb coming soon!</h1>
-        <p>chill, i'm working on it!</p>
+        <h1>chill, i'm working on it</h1>
+        <p>check back soon
+        </p>
+        <p>hei@andreskoljalg.com if you're inpatient
+        </p>
     </div>
     <svg viewBox="0 0 2 1" preserveAspectRatio="none">
         <defs>
@@ -58,9 +78,9 @@
               v.5z" />
         </defs>
         <g>
-            <use href="#w" y=".0" fill="#e0e0e0" /> <!-- Light grey -->
-            <use href="#w" y=".1" fill="#bdbdbd" /> <!-- Medium grey -->
-            <use href="#w" y=".2" fill="#9e9e9e" /> <!-- Dark grey -->
+            <use href="#w" y=".0" />
+            <use href="#w" y=".1" />
+            <use href="#w" y=".2" />
         </g>
     </svg>
 </body>
