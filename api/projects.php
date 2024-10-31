@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/public/style.css">
     <title>Andres Kõljalg</title>
 </head>
 <body class="duration-500 ease-in-out opacity-0">
@@ -61,7 +61,7 @@
         </div>
     </div>
     <header class="flex h-16 justify-between p-2 -translate-y-full ease-in-out duration-700 delay-300 lg:hidden" id="slide">
-        <a href="javascript:delay('/index0.html')" class="w-44"><img src="assets/svgs/ak_mainlogotitle.svg" class="h-full" alt="ak_mainlogotitle"></a>
+        <a href="javascript:delay('/index0.html')" class="w-44"><img src="/public/assets/svgs/ak_mainlogotitle.svg" class="h-full" alt="ak_mainlogotitle"></a>
         <div class="w-12 flex justify-between items-end py-2 flex-col" id="menuToggle">
             <div class="h-1/6 w-1/3 bg-black"></div>
             <div class="h-1/6 w-2/3 bg-black"></div>
@@ -69,20 +69,20 @@
         </div>
     </header>
     <div class="hidden lg:block px-12 xl:px-24 py-8 w-fit">
-        <a href="javascript:delay('/index0.html')"><h1 class="font-['Hanson'] text-3xl">BACK</h1></a>  
+        <a href="javascript:delay('/public/index0.html')"><h1 class="font-['Hanson'] text-3xl">BACK</h1></a>  
     </div>
     <div class="translate-y-[100vh] duration-700 delay-300 ease-in-out lg:translate-y-0" id="slide">
         <div class="flex flex-col h-screen w-full p-2 lg:pb-24 lg:px-12 xl:px-24">
             <div class="flex flex-col justify-around h-fit gap-10">
                 <div class="flex flex-col gap-10 mt-20 sm:mt-12 lg:m-0 xl:mt-12">
                     <a href="#photography">
-                        <img src="assets/svgs/01_photography_title.svg" class="w-[65vw] sm:w-1/2 md:w-1/3 xl:w-1/4 max-w-md" alt="photography_title">
+                        <img src="/public/assets/svgs/01_photography_title.svg" class="w-[65vw] sm:w-1/2 md:w-1/3 xl:w-1/4 max-w-md" alt="photography_title">
                     </a>
                     <a href="#design">
-                        <img src="assets/svgs/02_design_title.svg" class="w-[75vw] sm:w-8/12 md:w-6/12 xl:w-5/12 max-w-md" alt="design_title">
+                        <img src="/public/assets/svgs/02_design_title.svg" class="w-[75vw] sm:w-8/12 md:w-6/12 xl:w-5/12 max-w-md" alt="design_title">
                     </a>
                     <a href="#other">
-                        <img src="assets/svgs/03_other_title.svg" class="w-[50vw] sm:w-6/12 md:w-4/12 xl:w-3/12 max-w-md" alt="other_title">
+                        <img src="/public/assets/svgs/03_other_title.svg" class="w-[50vw] sm:w-6/12 md:w-4/12 xl:w-3/12 max-w-md" alt="other_title">
                     </a>
                 </div>
                 <div class="mt-24 sm:mt-12 lg:m-0 xl:mt-12">
@@ -95,10 +95,10 @@
             01 PHOTOGRAPHY TITLE
             #################### -->
             <div class="hidden lg:flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end">
-                <img src="assets/svgs/01_photography_title.svg" id="photography" class="w-4/6 lg:w-3/6" alt="photography_title">
+                <img src="/public/assets/svgs/01_photography_title.svg" id="photography" class="w-4/6 lg:w-3/6" alt="photography_title">
             </div>
             <div class="flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end lg:hidden">
-                <img src="assets/svgs/01_photography_mobile.svg" id="photography" class="w-4/6" alt="photography_title">
+                <img src="/public/assets/svgs/01_photography_mobile.svg" id="photography" class="w-4/6" alt="photography_title">
             </div>
 
             <!-- ### PHOTOGRAPHY PROJECT BLOCK ### -->
@@ -195,10 +195,10 @@
             02 DESIGN TITLE
             #################### -->
             <div class="hidden lg:flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end">
-                <img src="assets/svgs/02_design_title.svg" id="design" class="w-4/6 lg:w-3/6" alt="">
+                <img src="/public/assets/svgs/02_design_title.svg" id="design" class="w-4/6 lg:w-3/6" alt="">
             </div>
             <div class="flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end lg:hidden">
-                <img src="assets/svgs/02_design_mobile.svg" id="design" class="w-4/6" alt="">
+                <img src="/public/assets/svgs/02_design_mobile.svg" id="design" class="w-4/6" alt="">
             </div>
 
             <!-- ### DESIGN PROJECT BLOCK ### -->
@@ -233,10 +233,10 @@
             03 OTHER TITLE
             #################### -->
             <div class="hidden lg:flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end">
-                <img src="assets/svgs/03_other_title.svg" id="other" class="w-4/6 lg:w-3/6" alt="">
+                <img src="/public/assets/svgs/03_other_title.svg" id="other" class="w-4/6 lg:w-3/6" alt="">
             </div>
             <div class="flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end lg:hidden">
-                <img src="assets/svgs/03_other_mobile.svg" id="other" class="w-4/6" alt="">
+                <img src="/public/assets/svgs/03_other_mobile.svg" id="other" class="w-4/6" alt="">
             </div>
             
             <!-- ### OTHER PROJECT BLOCK ### -->
@@ -269,6 +269,6 @@
         </div>
     </div>
 
-    <script src="animation.js"></script>
+    <script src="/public/animation.js"></script>
 </body>
 </html>

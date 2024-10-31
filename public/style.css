@@ -11,8 +11,8 @@ html {
 @font-face {
   font-family: 'Hanson';
 
-  src: url('../assets/fonts/hanson-bold.woff') format('woff'),
-         url('../assets/fonts/hanson-bold.woff2') format('woff2');
+  src: url('/public/assets/fonts/hanson-bold.woff') format('woff'),
+         url('/public/assets/fonts/hanson-bold.woff2') format('woff2');
 
   font-weight: normal;
 
@@ -22,7 +22,7 @@ html {
 @font-face {
   font-family: 'AppleChancery';
 
-  src: url('../assets/fonts/apple_chancery.woff2') format('woff2'),
+  src: url('/public/assets/fonts/apple_chancery.woff2') format('woff2'),
          url('../assets/fonts/apple_chancery.woff') format('woff');
 
   font-weight: normal;
