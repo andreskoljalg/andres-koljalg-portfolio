@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
 
     if (empty($honeyPotMail) && empty($honeyPotWebsite)) {
         mail($mailTo, $subject, $message, $headers);
-        header("Location: /public/contact_confirmation.html");
+        header("Location: /contact_confirmation.html");
     } else {
         header("Location: index.html");
     }
