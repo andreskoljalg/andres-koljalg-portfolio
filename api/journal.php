@@ -53,7 +53,7 @@
                     $access_token = $_ENV['CONTENTFUL_ACCESS_TOKEN'];
 
                     $client = new Client([
-                        'base_uri' => 'https://images.eu.ctfassets.net',
+                        'base_uri' => 'https://cdn.contentful.com',
                     ]);
 
                     try {
@@ -79,7 +79,7 @@
 
                                     if ($asset && isset($asset['fields']['file']['url'])) {
                                         // Correctly construct the image URL using the base and asset information
-                                        $fileUrl = $asset['fields']['file']['url'];
+                                        $fileUrl = str_replace('downloads.ctfassets.net', 'images.ctfassets.net', $asset['fields']['file']['url']);
                                         $imageUrl = "https:" . $fileUrl . "?fm=webp&q=50&w=800";
                                         
                                         echo "<img src='$imageUrl' class='h-full' loading='lazy' />";
