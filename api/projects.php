@@ -23,7 +23,7 @@ try {
             'query' => [
                 'access_token' => $access_token,
                 'content_type' => 'category', // Note: Ensure this matches your content type ID
-                'fields.projectCategory[in]' => $categoryName, // Correct filter syntax for field values in Contentful
+                'fields.projectCategory[in]' => $categoryName,
                 'include' => 1
             ]
         ]);
@@ -55,29 +55,37 @@ try {
 
         // Iterate through projects in each category
         foreach ($data['items'] as $project) {
-            $title = $project['fields']['projectTitle'];
-            $description = $project['fields']['projectDescription'];
-            $date = $project['fields']['projectDate'];
-            $location = isset($project['fields']['projectLocation']) ? $project['fields']['projectLocation'] : '';
-            $images = $project['fields']['projectMedia'];
+            if (isset($project['fields'])) {
+                $fields = $project['fields'];
 
-            echo '<div class="p-0 lg:pl-12 xl:pl-24 mb-32 lg:flex lg:gap-5">';
-            echo '<div class="lg:w-4/12">';
-            echo "<h1 class='font-['Hanson'] text-[10vw] sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl p-2'>$title</h1>";
-            echo '<div class="px-2 pb-2 text-xl font-[Times_New_Roman]">';
-            echo "<p class='mb-4'>$description</p>";
-            echo "<p class='mb-4'>$location</p>";
-            echo "<p class='mb-4'>$date</p>";
-            echo '</div>';
-            echo '</div>';
-            echo '<div class="lg:h-[36rem] flex overflow-x-scroll lg:w-8/12">';
-            foreach ($images as $image) {
-                $filePath = $image['fields']['file']['url']; // This contains the path to the image
-                $imageUrl = 'https://images.ctfassets.net' . $filePath . '?fm=webp&q=40&w=500';
-                echo "<img src='$imageUrl' class='h-[65vw] lg:h-full lg:object-cover ' loading='lazy' />";
+                $title = isset($fields['projectTitle']) ? $fields['projectTitle'] : 'Untitled';
+                $description = isset($fields['projectDescription']) ? $fields['projectDescription'] : 'No description available.';
+                $date = isset($fields['projectDate']) ? $fields['projectDate'] : 'No date provided';
+                $location = isset($fields['projectLocation']) ? $fields['projectLocation'] : '';
+
+                echo '<div class="p-0 lg:pl-12 xl:pl-24 mb-32 lg:flex lg:gap-5">';
+                echo '<div class="lg:w-4/12">';
+                echo "<h1 class='font-[Hanson] text-[10vw] sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl p-2'>$title</h1>";
+                echo '<div class="px-2 pb-2 text-xl font-[Times_New_Roman]">';
+                echo "<p class='mb-4'>$description</p>";
+                echo "<p class='mb-4'>$location</p>";
+                echo "<p class='mb-4'>$date</p>";
+                echo '</div>';
+                echo '</div>';
+
+                if (isset($fields['projectMedia']) && is_array($fields['projectMedia'])) {
+                    echo '<div class="lg:h-[36rem] flex overflow-x-scroll lg:w-8/12">';
+                    foreach ($fields['projectMedia'] as $image) {
+                        if (isset($image['fields']['file']['url'])) {
+                            $filePath = $image['fields']['file']['url'];
+                            $imageUrl = 'https://images.ctfassets.net' . $filePath . '?fm=webp&q=40&w=500';
+                            echo "<img src='$imageUrl' class='h-[65vw] lg:h-full lg:object-cover ' loading='lazy' />";
+                        }
+                    }
+                    echo '</div>';
+                }
+                echo '</div>';
             }
-            echo '</div>';
-            echo '</div>';
         }
     }
 } catch (Exception $e) {
