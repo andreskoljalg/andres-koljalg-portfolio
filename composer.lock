@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "22a9eb164b8752d3b818e74996039fc4",
+    "content-hash": "84e106fe3e52d762c0805e3f8fad4dc0",
     "packages": [
         {
             "name": "contentful/contentful",
@@ -2156,7 +2156,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.4 || ^8.0",
+        "php": "^8.0",
         "ext-curl": "*"
     },
     "platform-dev": [],
