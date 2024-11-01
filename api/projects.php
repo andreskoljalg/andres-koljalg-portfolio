@@ -22,7 +22,7 @@ try {
         $response = $client->request('GET', "/spaces/$space_id/environments/master/entries", [
             'query' => [
                 'access_token' => $access_token,
-                'content_type' => 'projectsEntry', // Note: Ensure this matches your content type ID
+                'content_type' => 'category', // Note: Ensure this matches your content type ID
                 'fields.projectCategory[in]' => $categoryName, // Correct filter syntax for field values in Contentful
                 'include' => 1
             ]
