@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * This file is part of the contentful.php package.
+ *
+ * @copyright 2015-2018 Contentful GmbH
+ * @license   MIT
+ */
+
+$paths = [
+    __DIR__.'/../vendor/autoload.php', // locally
+    __DIR__.'/../../../autoload.php' // dependency
+];
+foreach ($paths as $path) {
+    if (is_file($path)) {
+        require_once $path;
+        break;
+    }
+}
+
+$application = new Contentful\Delivery\Console\Application();
+$application->run();
