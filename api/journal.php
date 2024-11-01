@@ -46,6 +46,7 @@
                     use GuzzleHttp\Client;
                     use Dotenv\Dotenv;
 
+                    // Load the .env file from the public folder
                     $dotenv = Dotenv::createImmutable(__DIR__ . '/../public', 'apiKeys.env');
                     $dotenv->load();
 
@@ -78,11 +79,8 @@
                                     $asset = reset($asset);
 
                                     if ($asset && isset($asset['fields']['file']['url'])) {
-                                        $imageUrl = 'https:' . $asset['fields']['file']['url'];
-
-                                        // Optimize image using Contentful's Image API
-                                        $imageUrl .= '?w=800&h=600&fm=webp&q=75';
-
+                                        $imagePath = $asset['fields']['file']['url'];
+                                        $imageUrl = "https://images.ctfassets.net/$space_id/$imageId/{$asset['fields']['file']['fileName']}?fm=webp&q=50&w=800";
                                         echo "<img src='$imageUrl' class='h-full' loading='lazy' />";
                                     }
                                 }
