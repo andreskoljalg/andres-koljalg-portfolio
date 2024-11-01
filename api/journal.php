@@ -46,7 +46,6 @@
                     use GuzzleHttp\Client;
                     use Dotenv\Dotenv;
 
-                    // Load the .env file from the public folder
                     $dotenv = Dotenv::createImmutable(__DIR__ . '/../public', 'apiKeys.env');
                     $dotenv->load();
 
@@ -79,8 +78,10 @@
                                     $asset = reset($asset);
 
                                     if ($asset && isset($asset['fields']['file']['url'])) {
-                                        $imagePath = $asset['fields']['file']['url'];
-                                        $imageUrl = "https://images.ctfassets.net/$space_id/$imageId/{$asset['fields']['file']['fileName']}?fm=webp&q=50&w=800";
+                                        // Correctly construct the image URL using the base and asset information
+                                        $fileUrl = $asset['fields']['file']['url'];
+                                        $imageUrl = "https:" . $fileUrl . "?fm=webp&q=50&w=800";
+                                        
                                         echo "<img src='$imageUrl' class='h-full' loading='lazy' />";
                                     }
                                 }
@@ -89,7 +90,7 @@
                     } catch (Exception $e) {
                         echo 'Error fetching journal images: ' . $e->getMessage();
                     }
-                ?>
+                    ?>
             </div>
         </div>
     </div>
