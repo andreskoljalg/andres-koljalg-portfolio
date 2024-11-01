@@ -1,13 +1,27 @@
 {
   "version": 2,
-  "functions": {
-    "api/*.php": {
-      "runtime": "vercel-php@0.7.3"
+  "builds": [
+    {
+      "src": "api/*.php",
+      "use": "@vercel/php"
+    },
+    {
+      "src": "public/**/*",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "public"
+      }
     }
-  },
+  ],
   "routes": [
-    { "src": "^/api/(.*)", "dest": "/api/$1" },
-    { "src": "^/$", "dest": "/public/in-progress.html" },
-    { "src": "/(.*)", "dest": "/public/$1" }
-  ]
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/public/$1"
+    }
+  ],
+  "buildCommand": "composer install --no-dev"
 }

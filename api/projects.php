@@ -13,7 +13,7 @@
 </head>
 <body class="duration-500 ease-in-out opacity-0">
 <?php
-require 'vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 use GuzzleHttp\Client;
 use Dotenv\Dotenv;
