@@ -46,7 +46,6 @@
                     use GuzzleHttp\Client;
                     use Dotenv\Dotenv;
 
-                    // Load the .env file from the public folder
                     $dotenv = Dotenv::createImmutable(__DIR__ . '/../public', 'apiKeys.env');
                     $dotenv->load();
 
@@ -80,12 +79,10 @@
 
                                     if ($asset && isset($asset['fields']['file']['url'])) {
                                         $imageUrl = 'https:' . $asset['fields']['file']['url'];
-                                        $imageSize = $asset['fields']['file']['details']['size'];
 
-                                        // If image size is greater than 1MB, downscale it
-                                        if ($imageSize > 1048576) { // 1MB in bytes
-                                            $imageUrl .= '?w=800&h=600&fm=webp&q=80';
-                                        }
+                                        // Optimize image using Contentful's Image API
+                                        $imageUrl .= '?w=800&h=600&fm=webp&q=75';
+
                                         echo "<img src='$imageUrl' class='h-full' loading='lazy' />";
                                     }
                                 }
