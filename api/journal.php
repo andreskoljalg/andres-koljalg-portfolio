@@ -53,7 +53,7 @@
                     $access_token = $_ENV['CONTENTFUL_ACCESS_TOKEN'];
 
                     $client = new Client([
-                        'base_uri' => 'https://cdn.contentful.com',
+                        'base_uri' => 'https://images.eu.ctfassets.net',
                     ]);
 
                     try {
