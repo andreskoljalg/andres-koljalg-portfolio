@@ -56,6 +56,7 @@ foreach ($categories as $categoryName) {
         $projectsByCategory[$categoryName] = [];
     }
 }
+$projectIndex = 0; // Initialize project index
 ?>
 <div id="menu" class="fixed h-screen w-screen justify-center items-center translate-x-full flex flex-col text-3xl font-['Times_New_Roman'] lg:hidden bg-white duration-700 ease-in-out">
     <a href="javascript:delay('/about.html')">About</a>
@@ -122,6 +123,9 @@ foreach ($categories as $categoryName) {
                 $projectId = $project['sys']['id'];
                 $formattedDate = date('d.m.Y', strtotime($projectDate));
                 $projectLink = '/project.php?id=' . $projectId;
+
+                // Determine scroll direction based on project index
+                $scrollDirection = ($projectIndex % 2 === 0) ? 'scroll-left' : 'scroll-right';
                 ?>
                 <div class="p-0 lg:pl-12 xl:pl-24 mb-32 lg:flex lg:gap-5">
                     <div class="lg:w-4/12">
@@ -138,27 +142,33 @@ foreach ($categories as $categoryName) {
                             </p>
                         </div>
                     </div>
-                    <a href="<?php echo $projectLink; ?>" class="lg:h-[36rem] flex overflow-x-scroll lg:w-8/12">
-                        <?php
-                        if ($projectMedia) {
-                            foreach ($projectMedia as $media) {
-                                // Get the asset details
-                                $assetId = $media['sys']['id'];
-                                // Find the asset in the includes
-                                foreach ($projectsByCategory['photography']['includes']['Asset'] as $asset) {
-                                    if ($asset['sys']['id'] == $assetId) {
-                                        $fileUrl = 'https:' . $asset['fields']['file']['url'];
-                                        $imageUrl = $fileUrl . '?fm=webp&q=40&w=500';
-                                        echo "<img src='$imageUrl' class='h-[65vw] lg:h-full lg:object-cover' loading='lazy' />";
-                                        break;
+                    <div class="lg:h-[36rem] flex overflow-hidden lg:w-8/12 auto-scroll <?php echo $scrollDirection; ?>">
+                        <div class="scroll-content">
+                            <?php
+                            if ($projectMedia) {
+                                // Duplicate the images by looping twice
+                                for ($i = 0; $i < 2; $i++) {
+                                    foreach ($projectMedia as $media) {
+                                        // Get the asset details
+                                        $assetId = $media['sys']['id'];
+                                        // Find the asset in the includes
+                                        foreach ($projectsByCategory['photography']['includes']['Asset'] as $asset) {
+                                            if ($asset['sys']['id'] == $assetId) {
+                                                $fileUrl = 'https:' . $asset['fields']['file']['url'];
+                                                $imageUrl = $fileUrl . '?fm=webp&q=40&w=500';
+                                                echo "<img src='$imageUrl' class='h-[65vw] lg:h-full lg:object-cover' loading='lazy' />";
+                                                break;
+                                            }
+                                        }
                                     }
                                 }
                             }
-                        }
-                        ?>
-                    </a>
+                            ?>
+                        </div>
+                    </div>
                 </div>
                 <?php
+                $projectIndex++; // Increment project index
             }
         }
         ?>
@@ -184,6 +194,9 @@ foreach ($categories as $categoryName) {
                 $projectId = $project['sys']['id'];
                 $formattedDate = date('d.m.Y', strtotime($projectDate));
                 $projectLink = '/project.php?id=' . $projectId;
+
+                // Determine scroll direction based on project index
+                $scrollDirection = ($projectIndex % 2 === 0) ? 'scroll-left' : 'scroll-right';
                 ?>
                 <div class="p-0 lg:pl-12 xl:pl-24 mb-32 lg:flex lg:gap-5">
                     <div class="lg:w-4/12">
@@ -200,27 +213,33 @@ foreach ($categories as $categoryName) {
                             </p>
                         </div>
                     </div>
-                    <a href="<?php echo $projectLink; ?>" class="lg:h-[36rem] flex overflow-x-scroll lg:w-8/12">
-                        <?php
-                        if ($projectMedia) {
-                            foreach ($projectMedia as $media) {
-                                // Get the asset details
-                                $assetId = $media['sys']['id'];
-                                // Find the asset in the includes
-                                foreach ($projectsByCategory['design']['includes']['Asset'] as $asset) {
-                                    if ($asset['sys']['id'] == $assetId) {
-                                        $fileUrl = 'https:' . $asset['fields']['file']['url'];
-                                        $imageUrl = $fileUrl . '?fm=webp&q=40&w=500';
-                                        echo "<img src='$imageUrl' class='h-[65vw] lg:h-full lg:object-cover' loading='lazy' />";
-                                        break;
+                    <div class="lg:h-[36rem] flex overflow-hidden lg:w-8/12 auto-scroll <?php echo $scrollDirection; ?>">
+                        <div class="scroll-content">
+                            <?php
+                            if ($projectMedia) {
+                                // Duplicate the images by looping twice
+                                for ($i = 0; $i < 2; $i++) {
+                                    foreach ($projectMedia as $media) {
+                                        // Get the asset details
+                                        $assetId = $media['sys']['id'];
+                                        // Find the asset in the includes
+                                        foreach ($projectsByCategory['design']['includes']['Asset'] as $asset) {
+                                            if ($asset['sys']['id'] == $assetId) {
+                                                $fileUrl = 'https:' . $asset['fields']['file']['url'];
+                                                $imageUrl = $fileUrl . '?fm=webp&q=40&w=500';
+                                                echo "<img src='$imageUrl' class='h-[65vw] lg:h-full lg:object-cover' loading='lazy' />";
+                                                break;
+                                            }
+                                        }
                                     }
                                 }
                             }
-                        }
-                        ?>
-                    </a>
+                            ?>
+                        </div>
+                    </div>
                 </div>
                 <?php
+                $projectIndex++; // Increment project index
             }
         }
         ?>
@@ -246,6 +265,9 @@ foreach ($categories as $categoryName) {
                 $projectId = $project['sys']['id'];
                 $formattedDate = date('d.m.Y', strtotime($projectDate));
                 $projectLink = '/project.php?id=' . $projectId;
+
+                // Determine scroll direction based on project index
+                $scrollDirection = ($projectIndex % 2 === 0) ? 'scroll-left' : 'scroll-right';
                 ?>
                 <div class="p-0 lg:pl-12 xl:pl-24 mb-32 lg:flex lg:gap-5">
                     <div class="lg:w-4/12">
@@ -262,27 +284,33 @@ foreach ($categories as $categoryName) {
                             </p>
                         </div>
                     </div>
-                    <a href="<?php echo $projectLink; ?>" class="lg:h-[36rem] flex overflow-x-scroll lg:w-8/12">
-                        <?php
-                        if ($projectMedia) {
-                            foreach ($projectMedia as $media) {
-                                // Get the asset details
-                                $assetId = $media['sys']['id'];
-                                // Find the asset in the includes
-                                foreach ($projectsByCategory['other']['includes']['Asset'] as $asset) {
-                                    if ($asset['sys']['id'] == $assetId) {
-                                        $fileUrl = 'https:' . $asset['fields']['file']['url'];
-                                        $imageUrl = $fileUrl . '?fm=webp&q=40&w=500';
-                                        echo "<img src='$imageUrl' class='h-[65vw] lg:h-full lg:object-cover' loading='lazy' />";
-                                        break;
+                    <div class="lg:h-[36rem] flex overflow-hidden lg:w-8/12 auto-scroll <?php echo $scrollDirection; ?>">
+                        <div class="scroll-content">
+                            <?php
+                            if ($projectMedia) {
+                                // Duplicate the images by looping twice
+                                for ($i = 0; $i < 2; $i++) {
+                                    foreach ($projectMedia as $media) {
+                                        // Get the asset details
+                                        $assetId = $media['sys']['id'];
+                                        // Find the asset in the includes
+                                        foreach ($projectsByCategory['other']['includes']['Asset'] as $asset) {
+                                            if ($asset['sys']['id'] == $assetId) {
+                                                $fileUrl = 'https:' . $asset['fields']['file']['url'];
+                                                $imageUrl = $fileUrl . '?fm=webp&q=40&w=500';
+                                                echo "<img src='$imageUrl' class='h-[65vw] lg:h-full lg:object-cover' loading='lazy' />";
+                                                break;
+                                            }
+                                        }
                                     }
                                 }
                             }
-                        }
-                        ?>
-                    </a>
+                            ?>
+                        </div>
+                    </div>
                 </div>
                 <?php
+                $projectIndex++; // Increment project index
             }
         }
         ?>

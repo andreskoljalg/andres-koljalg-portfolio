@@ -27,3 +27,37 @@ function delay (URL) {
     document.body.style.opacity = 0;
     setTimeout( function() { window.location = URL }, 500 );
 }
+
+document.querySelectorAll('.auto-scroll').forEach(container => {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+  
+    container.addEventListener('mousedown', e => {
+      isDown = true;
+      container.classList.add('active');
+      container.querySelector('.scroll-content').style.animationPlayState = 'paused';
+      startX = e.pageX - container.offsetLeft;
+      scrollLeft = container.scrollLeft;
+    });
+  
+    container.addEventListener('mouseleave', () => {
+      isDown = false;
+      container.classList.remove('active');
+      container.querySelector('.scroll-content').style.animationPlayState = 'running';
+    });
+  
+    container.addEventListener('mouseup', () => {
+      isDown = false;
+      container.classList.remove('active');
+      container.querySelector('.scroll-content').style.animationPlayState = 'running';
+    });
+  
+    container.addEventListener('mousemove', e => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - container.offsetLeft;
+      const walk = (x - startX) * 1; // Adjust the multiplier for scroll speed
+      container.scrollLeft = scrollLeft - walk;
+    });
+  });
