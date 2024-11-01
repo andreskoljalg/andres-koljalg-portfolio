@@ -33,6 +33,7 @@ document.querySelectorAll('.auto-scroll').forEach(container => {
     let startX;
     let scrollLeft;
   
+    // Mouse events for desktop
     container.addEventListener('mousedown', e => {
       isDown = true;
       container.classList.add('active');
@@ -57,6 +58,28 @@ document.querySelectorAll('.auto-scroll').forEach(container => {
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - container.offsetLeft;
+      const walk = (x - startX) * 1; // Adjust the multiplier for scroll speed
+      container.scrollLeft = scrollLeft - walk;
+    });
+  
+    // Touch events for mobile
+    container.addEventListener('touchstart', e => {
+      isDown = true;
+      container.classList.add('active');
+      container.querySelector('.scroll-content').style.animationPlayState = 'paused';
+      startX = e.touches[0].pageX - container.offsetLeft;
+      scrollLeft = container.scrollLeft;
+    });
+  
+    container.addEventListener('touchend', () => {
+      isDown = false;
+      container.classList.remove('active');
+      container.querySelector('.scroll-content').style.animationPlayState = 'running';
+    });
+  
+    container.addEventListener('touchmove', e => {
+      if (!isDown) return;
+      const x = e.touches[0].pageX - container.offsetLeft;
       const walk = (x - startX) * 1; // Adjust the multiplier for scroll speed
       container.scrollLeft = scrollLeft - walk;
     });

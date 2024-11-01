@@ -142,7 +142,7 @@ $projectIndex = 0; // Initialize project index
                             </p>
                         </div>
                     </div>
-                    <div class="lg:h-[36rem] flex overflow-hidden lg:w-8/12 auto-scroll <?php echo $scrollDirection; ?>">
+                    <div class="lg:h-[36rem] flex overflow-x-auto overflow-y-hidden lg:w-8/12 auto-scroll <?php echo $scrollDirection; ?>">
                         <div class="scroll-content">
                             <?php
                             if ($projectMedia) {
@@ -155,8 +155,8 @@ $projectIndex = 0; // Initialize project index
                                         foreach ($projectsByCategory['photography']['includes']['Asset'] as $asset) {
                                             if ($asset['sys']['id'] == $assetId) {
                                                 $fileUrl = 'https:' . $asset['fields']['file']['url'];
-                                                $imageUrl = $fileUrl . '?fm=webp&q=40&w=500';
-                                                echo "<img src='$imageUrl' class='h-[65vw] lg:h-full lg:object-cover' loading='lazy' />";
+                                                $imageUrl = $fileUrl . '?fm=webp&q=40&w=1000';
+                                                echo "<img src='$imageUrl' class='h-auto max-h-full' loading='lazy' />";
                                                 break;
                                             }
                                         }
@@ -213,7 +213,7 @@ $projectIndex = 0; // Initialize project index
                             </p>
                         </div>
                     </div>
-                    <div class="lg:h-[36rem] flex overflow-hidden lg:w-8/12 auto-scroll <?php echo $scrollDirection; ?>">
+                    <div class="lg:h-[36rem] flex overflow-x-auto overflow-y-hidden lg:w-8/12 auto-scroll <?php echo $scrollDirection; ?>">
                         <div class="scroll-content">
                             <?php
                             if ($projectMedia) {
@@ -226,8 +226,8 @@ $projectIndex = 0; // Initialize project index
                                         foreach ($projectsByCategory['design']['includes']['Asset'] as $asset) {
                                             if ($asset['sys']['id'] == $assetId) {
                                                 $fileUrl = 'https:' . $asset['fields']['file']['url'];
-                                                $imageUrl = $fileUrl . '?fm=webp&q=40&w=500';
-                                                echo "<img src='$imageUrl' class='h-[65vw] lg:h-full lg:object-cover' loading='lazy' />";
+                                                $imageUrl = $fileUrl . '?fm=webp&q=40&w=1000';
+                                                echo "<img src='$imageUrl' class='h-auto max-h-full' loading='lazy' />";
                                                 break;
                                             }
                                         }
@@ -284,7 +284,7 @@ $projectIndex = 0; // Initialize project index
                             </p>
                         </div>
                     </div>
-                    <div class="lg:h-[36rem] flex overflow-hidden lg:w-8/12 auto-scroll <?php echo $scrollDirection; ?>">
+                    <div class="lg:h-[36rem] flex overflow-x-auto overflow-y-hidden lg:w-8/12 auto-scroll <?php echo $scrollDirection; ?>">
                         <div class="scroll-content">
                             <?php
                             if ($projectMedia) {
@@ -297,8 +297,8 @@ $projectIndex = 0; // Initialize project index
                                         foreach ($projectsByCategory['other']['includes']['Asset'] as $asset) {
                                             if ($asset['sys']['id'] == $assetId) {
                                                 $fileUrl = 'https:' . $asset['fields']['file']['url'];
-                                                $imageUrl = $fileUrl . '?fm=webp&q=40&w=500';
-                                                echo "<img src='$imageUrl' class='h-[65vw] lg:h-full lg:object-cover' loading='lazy' />";
+                                                $imageUrl = $fileUrl . '?fm=webp&q=40&w=1000';
+                                                echo "<img src='$imageUrl' class='h-auto max-h-full' loading='lazy' />";
                                                 break;
                                             }
                                         }

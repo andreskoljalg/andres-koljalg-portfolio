@@ -1230,50 +1230,54 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
-.hover-upward {
-  transition: transform 0.2s ease;
-}
-
-.hover-upward:hover {
-  transform: translateY(-4px);
-}
-
+/* Auto-scroll container */
 .auto-scroll {
   position: relative;
-  overflow: hidden;
+  overflow-x: auto; /* Allow horizontal scrolling */
+  overflow-y: hidden;
+  scroll-behavior: smooth;
 }
 
 .auto-scroll .scroll-content {
   display: flex;
-}
-
-.auto-scroll img {
-  min-width: 100%;
-  flex-shrink: 0;
+  flex-wrap: nowrap;
+  /* Duplicate the content to create seamless scrolling */
+  width: max-content;
+  animation: scroll 30s linear infinite;
 }
 
 .auto-scroll.scroll-left .scroll-content {
-  animation: scroll-left 30s linear infinite;
+  animation-name: scroll-left;
 }
 
 .auto-scroll.scroll-right .scroll-content {
-  animation: scroll-right 30s linear infinite;
+  animation-name: scroll-right;
 }
 
+.auto-scroll img {
+  flex-shrink: 0;
+  height: auto;
+  max-height: 100%;
+  width: auto;
+  max-width: none;
+}
+
+/* Keyframes for scrolling left */
 @keyframes scroll-left {
-  0% {
+  from {
     transform: translateX(0);
   }
-  100% {
+  to {
     transform: translateX(-50%);
   }
 }
 
+/* Keyframes for scrolling right */
 @keyframes scroll-right {
-  0% {
+  from {
     transform: translateX(-50%);
   }
-  100% {
+  to {
     transform: translateX(0);
   }
 }
