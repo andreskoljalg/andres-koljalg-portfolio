@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <title>Andres Kõljalg</title>
 </head>
 <body class="duration-500 ease-in-out opacity-0">
@@ -33,7 +33,7 @@
                 $response = $client->request('GET', "/spaces/$space_id/environments/master/entries", [
                     'query' => [
                         'access_token' => $access_token,
-                        'content_type' => 'projectsEntry',
+                        'content_type' => 'category',
                         'fields.projectCategory[in]' => $categoryName,
                         'include' => 1
                     ]
@@ -103,6 +103,6 @@
             echo 'Error fetching project data: ' . $e->getMessage();
         }
     ?>
-    <script src="animation.js"></script>
+    <script src="/animation.js"></script>
 </body>
 </html>
