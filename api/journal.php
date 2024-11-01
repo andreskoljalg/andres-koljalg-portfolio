@@ -41,12 +41,13 @@
             </div>
             <div class="flex h-[30rem] overflow-x-scroll">
                 <?php
-                    require 'vendor/autoload.php'; // Autoload Guzzle and Dotenv using Composer
+                    require __DIR__ . '/../vendor/autoload.php'; // Autoload Guzzle and Dotenv using Composer
 
                     use GuzzleHttp\Client;
                     use Dotenv\Dotenv;
 
-                    $dotenv = Dotenv::createImmutable(__DIR__ . '/../'); // Load the .env file
+                    // Load the .env file from the public folder
+                    $dotenv = Dotenv::createImmutable(__DIR__ . '/../public', 'apiKeys.env');
                     $dotenv->load();
 
                     $space_id = $_ENV['CONTENTFUL_SPACE_ID'];
