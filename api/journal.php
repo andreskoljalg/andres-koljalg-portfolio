@@ -41,12 +41,57 @@
             </div>
             <div class="flex h-[30rem] overflow-x-scroll">
                 <?php
-                    $dir = "/assets/journal/";
-                    $files = scandir($dir);
-                    foreach($files as $file) {
-                        if($file !== "." && $file !== "..") {
-                            echo "<img src='$dir$file' class='h-full' loading='lazy' />";
+                    require 'vendor/autoload.php'; // Autoload Guzzle and Dotenv using Composer
+
+                    use GuzzleHttp\Client;
+                    use Dotenv\Dotenv;
+
+                    $dotenv = Dotenv::createImmutable(__DIR__ . '/../'); // Load the .env file
+                    $dotenv->load();
+
+                    $space_id = $_ENV['CONTENTFUL_SPACE_ID'];
+                    $access_token = $_ENV['CONTENTFUL_ACCESS_TOKEN'];
+
+                    $client = new Client([
+                        'base_uri' => 'https://cdn.contentful.com',
+                    ]);
+
+                    try {
+                        // Fetch entries from Contentful
+                        $response = $client->request('GET', "/spaces/$space_id/environments/master/entries", [
+                            'query' => [
+                                'access_token' => $access_token,
+                                'content_type' => 'journalEntry',
+                                'include' => 1 // Include linked assets (images)
+                            ]
+                        ]);
+
+                        $data = json_decode($response->getBody(), true);
+
+                        foreach ($data['items'] as $item) {
+                            if (isset($item['fields']['journalImage'])) {
+                                foreach ($item['fields']['journalImage'] as $image) {
+                                    $imageId = $image['sys']['id'];
+                                    $asset = array_filter($data['includes']['Asset'], function ($asset) use ($imageId) {
+                                        return $asset['sys']['id'] === $imageId;
+                                    });
+                                    $asset = reset($asset);
+
+                                    if ($asset && isset($asset['fields']['file']['url'])) {
+                                        $imageUrl = 'https:' . $asset['fields']['file']['url'];
+                                        $imageSize = $asset['fields']['file']['details']['size'];
+
+                                        // If image size is greater than 1MB, downscale it
+                                        if ($imageSize > 1048576) { // 1MB in bytes
+                                            $imageUrl .= '?w=800&h=600&fm=webp&q=80';
+                                        }
+                                        echo "<img src='$imageUrl' class='h-full' loading='lazy' />";
+                                    }
+                                }
+                            }
                         }
+                    } catch (Exception $e) {
+                        echo 'Error fetching journal images: ' . $e->getMessage();
                     }
                 ?>
             </div>
