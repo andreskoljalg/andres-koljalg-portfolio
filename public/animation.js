@@ -28,59 +28,69 @@ function delay (URL) {
     setTimeout( function() { window.location = URL }, 500 );
 }
 
-document.querySelectorAll('.auto-scroll').forEach(container => {
+ddocument.querySelectorAll('.scroll-container').forEach(container => {
     let isDown = false;
     let startX;
     let scrollLeft;
+  
+    // Function to pause animation
+    function pauseAnimation() {
+      container.querySelector('.scroll-content').style.animationPlayState = 'paused';
+    }
+  
+    // Function to resume animation
+    function resumeAnimation() {
+      container.querySelector('.scroll-content').style.animationPlayState = 'running';
+    }
   
     // Mouse events for desktop
     container.addEventListener('mousedown', e => {
       isDown = true;
       container.classList.add('active');
-      container.querySelector('.scroll-content').style.animationPlayState = 'paused';
+      pauseAnimation();
       startX = e.pageX - container.offsetLeft;
       scrollLeft = container.scrollLeft;
     });
   
     container.addEventListener('mouseleave', () => {
-      isDown = false;
-      container.classList.remove('active');
-      container.querySelector('.scroll-content').style.animationPlayState = 'running';
+      if (isDown) {
+        isDown = false;
+        container.classList.remove('active');
+        resumeAnimation();
+      }
     });
   
     container.addEventListener('mouseup', () => {
       isDown = false;
       container.classList.remove('active');
-      container.querySelector('.scroll-content').style.animationPlayState = 'running';
+      resumeAnimation();
     });
   
     container.addEventListener('mousemove', e => {
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - container.offsetLeft;
-      const walk = (x - startX) * 1; // Adjust the multiplier for scroll speed
+      const walk = (x - startX);
       container.scrollLeft = scrollLeft - walk;
     });
   
     // Touch events for mobile
     container.addEventListener('touchstart', e => {
       isDown = true;
-      container.classList.add('active');
-      container.querySelector('.scroll-content').style.animationPlayState = 'paused';
+      pauseAnimation();
       startX = e.touches[0].pageX - container.offsetLeft;
       scrollLeft = container.scrollLeft;
     });
   
     container.addEventListener('touchend', () => {
       isDown = false;
-      container.classList.remove('active');
-      container.querySelector('.scroll-content').style.animationPlayState = 'running';
+      resumeAnimation();
     });
   
     container.addEventListener('touchmove', e => {
       if (!isDown) return;
       const x = e.touches[0].pageX - container.offsetLeft;
-      const walk = (x - startX) * 1; // Adjust the multiplier for scroll speed
+      const walk = (x - startX);
       container.scrollLeft = scrollLeft - walk;
     });
   });

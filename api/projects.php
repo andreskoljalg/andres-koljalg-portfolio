@@ -59,13 +59,13 @@ foreach ($categories as $categoryName) {
 $projectIndex = 0; // Initialize project index
 ?>
 <div id="menu" class="fixed h-screen w-screen justify-center items-center translate-x-full flex flex-col text-3xl font-['Times_New_Roman'] lg:hidden bg-white duration-700 ease-in-out">
-    <a href="javascript:delay('/about.html')">About</a>
+    <a href="javascript:delay('/api/about.php')">About</a>
     <p class="w-fit">&#8226</p>
-    <a href="javascript:delay('/projects.php')">Projects</a>
+    <a href="javascript:delay('/api/projects.php')">Projects</a>
     <p class="w-fit">&#8226</p>
-    <a href="javascript:delay('/journal.php')">Journal</a>
+    <a href="javascript:delay('/api/journal.php')">Journal</a>
     <p class="w-fit">&#8226</p>
-    <a href="javascript:delay('/contact.html')" class="mb-6">Contact</a>
+    <a href="javascript:delay('/api/contact.php')" class="mb-6">Contact</a>
     <div class="w-12 h-12 flex justify-center items-center" id="menuToggle">
         <div class="w-12 fixed h-2 bg-black rotate-45"></div>
         <div class="w-12 fixed h-2 bg-black -rotate-45"></div>
@@ -142,7 +142,7 @@ $projectIndex = 0; // Initialize project index
                             </p>
                         </div>
                     </div>
-                    <div class="lg:h-[36rem] flex overflow-x-auto overflow-y-hidden lg:w-8/12 auto-scroll <?php echo $scrollDirection; ?>">
+                    <div class="scroll-container lg:h-[36rem] flex overflow-x-auto overflow-y-hidden lg:w-8/12 auto-scroll <?php echo $scrollDirection; ?>">
                         <div class="scroll-content">
                             <?php
                             if ($projectMedia) {
@@ -156,7 +156,7 @@ $projectIndex = 0; // Initialize project index
                                             if ($asset['sys']['id'] == $assetId) {
                                                 $fileUrl = 'https:' . $asset['fields']['file']['url'];
                                                 $imageUrl = $fileUrl . '?fm=webp&q=40&w=1000';
-                                                echo "<img src='$imageUrl' class='h-auto max-h-full' loading='lazy' />";
+                                                echo "<img src='$imageUrl' class='image-item' loading='lazy' />";
                                                 break;
                                             }
                                         }
@@ -213,7 +213,7 @@ $projectIndex = 0; // Initialize project index
                             </p>
                         </div>
                     </div>
-                    <div class="lg:h-[36rem] flex overflow-x-auto overflow-y-hidden lg:w-8/12 auto-scroll <?php echo $scrollDirection; ?>">
+                    <div class="scroll-container lg:h-[36rem] flex overflow-x-auto overflow-y-hidden lg:w-8/12 auto-scroll <?php echo $scrollDirection; ?>">
                         <div class="scroll-content">
                             <?php
                             if ($projectMedia) {
@@ -227,7 +227,7 @@ $projectIndex = 0; // Initialize project index
                                             if ($asset['sys']['id'] == $assetId) {
                                                 $fileUrl = 'https:' . $asset['fields']['file']['url'];
                                                 $imageUrl = $fileUrl . '?fm=webp&q=40&w=1000';
-                                                echo "<img src='$imageUrl' class='h-auto max-h-full' loading='lazy' />";
+                                                echo "<img src='$imageUrl' class='image-item' loading='lazy' />";
                                                 break;
                                             }
                                         }
@@ -284,7 +284,7 @@ $projectIndex = 0; // Initialize project index
                             </p>
                         </div>
                     </div>
-                    <div class="lg:h-[36rem] flex overflow-x-auto overflow-y-hidden lg:w-8/12 auto-scroll <?php echo $scrollDirection; ?>">
+                    <div class="scroll-container lg:h-[36rem] flex overflow-x-auto overflow-y-hidden lg:w-8/12 auto-scroll <?php echo $scrollDirection; ?>">
                         <div class="scroll-content">
                             <?php
                             if ($projectMedia) {
@@ -298,7 +298,7 @@ $projectIndex = 0; // Initialize project index
                                             if ($asset['sys']['id'] == $assetId) {
                                                 $fileUrl = 'https:' . $asset['fields']['file']['url'];
                                                 $imageUrl = $fileUrl . '?fm=webp&q=40&w=1000';
-                                                echo "<img src='$imageUrl' class='h-auto max-h-full' loading='lazy' />";
+                                                echo "<img src='$imageUrl' class='image-item' loading='lazy' />";
                                                 break;
                                             }
                                         }
