@@ -1,8 +1,8 @@
 {
-  "require": {
-    "php": "^8.0",
-    "ext-curl": "*",
-    "contentful/contentful": "^7.0",
-    "vlucas/phpdotenv": "^5.5"
+    "require": {
+      "php": "^7.4 || ^8.0",
+      "ext-curl": "*",
+      "guzzlehttp/guzzle": "^7.0",
+      "vlucas/phpdotenv": "^5.5"
+    }
   }
-}

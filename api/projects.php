@@ -15,7 +15,7 @@
 <?php
 require 'vendor/autoload.php';
 
-use Contentful\Delivery\Client;
+use GuzzleHttp\Client;
 use Dotenv\Dotenv;
 
 // Load environment variables
@@ -26,19 +26,35 @@ $space_id = $_ENV['CONTENTFUL_SPACE_ID'];
 $access_token = $_ENV['CONTENTFUL_ACCESS_TOKEN'];
 $environment_id = 'master';
 
-$client = new Client($access_token, $space_id, $environment_id);
+// Initialize Guzzle client
+$client = new Client([
+    'base_uri' => 'https://cdn.contentful.com',
+    'timeout'  => 10.0,
+]);
 
 // Fetch projects for each category
 $categories = ['photography', 'design', 'other'];
 $projectsByCategory = [];
 
 foreach ($categories as $categoryName) {
-    $query = new \Contentful\Delivery\Query();
-    $query->setContentType('category');
-    $query->where('fields.projectCategory', $categoryName);
-    $query->orderBy('-fields.projectDate');
-    $entries = $client->getEntries($query);
-    $projectsByCategory[$categoryName] = $entries;
+    $response = $client->request('GET', "/spaces/$space_id/environments/$environment_id/entries", [
+        'query' => [
+            'access_token' => $access_token,
+            'content_type' => 'category', // Your Content Type ID
+            'fields.projectCategory' => $categoryName,
+            'order' => '-fields.projectDate',
+            'include' => 1,
+        ],
+        'http_errors' => false,
+    ]);
+
+    if ($response->getStatusCode() == 200) {
+        $data = json_decode($response->getBody(), true);
+        $projectsByCategory[$categoryName] = $data;
+    } else {
+        // Handle error
+        $projectsByCategory[$categoryName] = [];
+    }
 }
 ?>
 <div id="menu" class="fixed h-screen w-screen justify-center items-center translate-x-full flex flex-col text-3xl font-['Times_New_Roman'] lg:hidden bg-white duration-700 ease-in-out">
@@ -95,45 +111,55 @@ foreach ($categories as $categoryName) {
             <img src="/assets/svgs/01_photography_mobile.svg" id="photography" class="w-4/6" alt="photography_title">
         </div>
         <?php
-        foreach ($projectsByCategory['photography'] as $project) {
-            $projectTitle = $project->get('projectTitle');
-            $projectDescription = $project->get('projectDescription');
-            $projectDate = $project->get('projectDate');
-            $projectLocation = $project->get('projectLocation');
-            $projectMedia = $project->get('projectMedia');
-            $projectId = $project->getId();
-            $formattedDate = date('d.m.Y', strtotime($projectDate));
-            $projectLink = '/project.php?id=' . $projectId;
-            ?>
-            <div class="p-0 lg:pl-12 xl:pl-24 mb-32 lg:flex lg:gap-5">
-                <div class="lg:w-4/12">
-                    <a href="<?php echo $projectLink; ?>">
-                        <h1 class="font-['Hanson'] text-[10vw] sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl p-2"><?php echo $projectTitle; ?></h1>
-                    </a>
-                    <div class="px-2 pb-2 text-xl font-['Times_New_Roman']">
-                        <p class="mb-4">
-                            <?php echo nl2br($projectDescription); ?>
-                        </p>
-                        <p class="mb-4">
-                            <?php echo $formattedDate; ?><br/>
-                            <?php echo $projectLocation; ?>
-                        </p>
+        if (isset($projectsByCategory['photography']['items'])) {
+            foreach ($projectsByCategory['photography']['items'] as $project) {
+                $fields = $project['fields'];
+                $projectTitle = $fields['projectTitle'];
+                $projectDescription = $fields['projectDescription'];
+                $projectDate = $fields['projectDate'];
+                $projectLocation = isset($fields['projectLocation']) ? $fields['projectLocation'] : '';
+                $projectMedia = isset($fields['projectMedia']) ? $fields['projectMedia'] : [];
+                $projectId = $project['sys']['id'];
+                $formattedDate = date('d.m.Y', strtotime($projectDate));
+                $projectLink = '/project.php?id=' . $projectId;
+                ?>
+                <div class="p-0 lg:pl-12 xl:pl-24 mb-32 lg:flex lg:gap-5">
+                    <div class="lg:w-4/12">
+                        <a href="<?php echo $projectLink; ?>">
+                            <h1 class="font-['Hanson'] text-[10vw] sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl p-2"><?php echo $projectTitle; ?></h1>
+                        </a>
+                        <div class="px-2 pb-2 text-xl font-['Times_New_Roman']">
+                            <p class="mb-4">
+                                <?php echo nl2br($projectDescription); ?>
+                            </p>
+                            <p class="mb-4">
+                                <?php echo $formattedDate; ?><br/>
+                                <?php echo $projectLocation; ?>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <a href="<?php echo $projectLink; ?>" class="lg:h-[36rem] flex overflow-x-scroll lg:w-8/12">
-                    <?php
-                    if ($projectMedia) {
-                        foreach ($projectMedia as $asset) {
-                            $file = $asset->getFile();
-                            $fileUrl = 'https:' . $file->getUrl();
-                            $imageUrl = $fileUrl . '?fm=webp&q=40&w=500';
-                            echo "<img src='$imageUrl' class='h-[65vw] lg:h-full lg:object-cover' loading='lazy' />";
+                    <a href="<?php echo $projectLink; ?>" class="lg:h-[36rem] flex overflow-x-scroll lg:w-8/12">
+                        <?php
+                        if ($projectMedia) {
+                            foreach ($projectMedia as $media) {
+                                // Get the asset details
+                                $assetId = $media['sys']['id'];
+                                // Find the asset in the includes
+                                foreach ($projectsByCategory['photography']['includes']['Asset'] as $asset) {
+                                    if ($asset['sys']['id'] == $assetId) {
+                                        $fileUrl = 'https:' . $asset['fields']['file']['url'];
+                                        $imageUrl = $fileUrl . '?fm=webp&q=40&w=500';
+                                        echo "<img src='$imageUrl' class='h-[65vw] lg:h-full lg:object-cover' loading='lazy' />";
+                                        break;
+                                    }
+                                }
+                            }
                         }
-                    }
-                    ?>
-                </a>
-            </div>
-            <?php
+                        ?>
+                    </a>
+                </div>
+                <?php
+            }
         }
         ?>
 
@@ -147,45 +173,55 @@ foreach ($categories as $categoryName) {
             <img src="/assets/svgs/02_design_mobile.svg" id="design" class="w-4/6" alt="">
         </div>
         <?php
-        foreach ($projectsByCategory['design'] as $project) {
-            $projectTitle = $project->get('projectTitle');
-            $projectDescription = $project->get('projectDescription');
-            $projectDate = $project->get('projectDate');
-            $projectLocation = $project->get('projectLocation');
-            $projectMedia = $project->get('projectMedia');
-            $projectId = $project->getId();
-            $formattedDate = date('d.m.Y', strtotime($projectDate));
-            $projectLink = '/project.php?id=' . $projectId;
-            ?>
-            <div class="p-0 lg:pl-12 xl:pl-24 mb-32 lg:flex lg:gap-5">
-                <div class="lg:w-4/12">
-                    <a href="<?php echo $projectLink; ?>">
-                        <h1 class="font-['Hanson'] text-[10vw] sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl p-2"><?php echo $projectTitle; ?></h1>
-                    </a>
-                    <div class="px-2 pb-2 text-xl font-['Times_New_Roman']">
-                        <p class="mb-4">
-                            <?php echo nl2br($projectDescription); ?>
-                        </p>
-                        <p class="mb-4">
-                            <?php echo $formattedDate; ?><br/>
-                            <?php echo $projectLocation; ?>
-                        </p>
+        if (isset($projectsByCategory['design']['items'])) {
+            foreach ($projectsByCategory['design']['items'] as $project) {
+                $fields = $project['fields'];
+                $projectTitle = $fields['projectTitle'];
+                $projectDescription = $fields['projectDescription'];
+                $projectDate = $fields['projectDate'];
+                $projectLocation = isset($fields['projectLocation']) ? $fields['projectLocation'] : '';
+                $projectMedia = isset($fields['projectMedia']) ? $fields['projectMedia'] : [];
+                $projectId = $project['sys']['id'];
+                $formattedDate = date('d.m.Y', strtotime($projectDate));
+                $projectLink = '/project.php?id=' . $projectId;
+                ?>
+                <div class="p-0 lg:pl-12 xl:pl-24 mb-32 lg:flex lg:gap-5">
+                    <div class="lg:w-4/12">
+                        <a href="<?php echo $projectLink; ?>">
+                            <h1 class="font-['Hanson'] text-[10vw] sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl p-2"><?php echo $projectTitle; ?></h1>
+                        </a>
+                        <div class="px-2 pb-2 text-xl font-['Times_New_Roman']">
+                            <p class="mb-4">
+                                <?php echo nl2br($projectDescription); ?>
+                            </p>
+                            <p class="mb-4">
+                                <?php echo $formattedDate; ?><br/>
+                                <?php echo $projectLocation; ?>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <a href="<?php echo $projectLink; ?>" class="lg:h-[36rem] flex overflow-x-scroll lg:w-8/12">
-                    <?php
-                    if ($projectMedia) {
-                        foreach ($projectMedia as $asset) {
-                            $file = $asset->getFile();
-                            $fileUrl = 'https:' . $file->getUrl();
-                            $imageUrl = $fileUrl . '?fm=webp&q=40&w=500';
-                            echo "<img src='$imageUrl' class='h-[65vw] lg:h-full lg:object-cover' loading='lazy' />";
+                    <a href="<?php echo $projectLink; ?>" class="lg:h-[36rem] flex overflow-x-scroll lg:w-8/12">
+                        <?php
+                        if ($projectMedia) {
+                            foreach ($projectMedia as $media) {
+                                // Get the asset details
+                                $assetId = $media['sys']['id'];
+                                // Find the asset in the includes
+                                foreach ($projectsByCategory['design']['includes']['Asset'] as $asset) {
+                                    if ($asset['sys']['id'] == $assetId) {
+                                        $fileUrl = 'https:' . $asset['fields']['file']['url'];
+                                        $imageUrl = $fileUrl . '?fm=webp&q=40&w=500';
+                                        echo "<img src='$imageUrl' class='h-[65vw] lg:h-full lg:object-cover' loading='lazy' />";
+                                        break;
+                                    }
+                                }
+                            }
                         }
-                    }
-                    ?>
-                </a>
-            </div>
-            <?php
+                        ?>
+                    </a>
+                </div>
+                <?php
+            }
         }
         ?>
 
@@ -199,45 +235,55 @@ foreach ($categories as $categoryName) {
             <img src="/assets/svgs/03_other_mobile.svg" id="other" class="w-4/6" alt="">
         </div>
         <?php
-        foreach ($projectsByCategory['other'] as $project) {
-            $projectTitle = $project->get('projectTitle');
-            $projectDescription = $project->get('projectDescription');
-            $projectDate = $project->get('projectDate');
-            $projectLocation = $project->get('projectLocation');
-            $projectMedia = $project->get('projectMedia');
-            $projectId = $project->getId();
-            $formattedDate = date('d.m.Y', strtotime($projectDate));
-            $projectLink = '/project.php?id=' . $projectId;
-            ?>
-            <div class="p-0 lg:pl-12 xl:pl-24 mb-32 lg:flex lg:gap-5">
-                <div class="lg:w-4/12">
-                    <a href="<?php echo $projectLink; ?>">
-                        <h1 class="font-['Hanson'] text-[10vw] sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl p-2"><?php echo $projectTitle; ?></h1>
-                    </a>
-                    <div class="px-2 pb-2 text-xl font-['Times_New_Roman']">
-                        <p class="mb-4">
-                            <?php echo nl2br($projectDescription); ?>
-                        </p>
-                        <p class="mb-4">
-                            <?php echo $formattedDate; ?><br/>
-                            <?php echo $projectLocation; ?>
-                        </p>
+        if (isset($projectsByCategory['other']['items'])) {
+            foreach ($projectsByCategory['other']['items'] as $project) {
+                $fields = $project['fields'];
+                $projectTitle = $fields['projectTitle'];
+                $projectDescription = $fields['projectDescription'];
+                $projectDate = $fields['projectDate'];
+                $projectLocation = isset($fields['projectLocation']) ? $fields['projectLocation'] : '';
+                $projectMedia = isset($fields['projectMedia']) ? $fields['projectMedia'] : [];
+                $projectId = $project['sys']['id'];
+                $formattedDate = date('d.m.Y', strtotime($projectDate));
+                $projectLink = '/project.php?id=' . $projectId;
+                ?>
+                <div class="p-0 lg:pl-12 xl:pl-24 mb-32 lg:flex lg:gap-5">
+                    <div class="lg:w-4/12">
+                        <a href="<?php echo $projectLink; ?>">
+                            <h1 class="font-['Hanson'] text-[10vw] sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl p-2"><?php echo $projectTitle; ?></h1>
+                        </a>
+                        <div class="px-2 pb-2 text-xl font-['Times_New_Roman']">
+                            <p class="mb-4">
+                                <?php echo nl2br($projectDescription); ?>
+                            </p>
+                            <p class="mb-4">
+                                <?php echo $formattedDate; ?><br/>
+                                <?php echo $projectLocation; ?>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <a href="<?php echo $projectLink; ?>" class="lg:h-[36rem] flex overflow-x-scroll lg:w-8/12">
-                    <?php
-                    if ($projectMedia) {
-                        foreach ($projectMedia as $asset) {
-                            $file = $asset->getFile();
-                            $fileUrl = 'https:' . $file->getUrl();
-                            $imageUrl = $fileUrl . '?fm=webp&q=40&w=500';
-                            echo "<img src='$imageUrl' class='h-[65vw] lg:h-full lg:object-cover' loading='lazy' />";
+                    <a href="<?php echo $projectLink; ?>" class="lg:h-[36rem] flex overflow-x-scroll lg:w-8/12">
+                        <?php
+                        if ($projectMedia) {
+                            foreach ($projectMedia as $media) {
+                                // Get the asset details
+                                $assetId = $media['sys']['id'];
+                                // Find the asset in the includes
+                                foreach ($projectsByCategory['other']['includes']['Asset'] as $asset) {
+                                    if ($asset['sys']['id'] == $assetId) {
+                                        $fileUrl = 'https:' . $asset['fields']['file']['url'];
+                                        $imageUrl = $fileUrl . '?fm=webp&q=40&w=500';
+                                        echo "<img src='$imageUrl' class='h-[65vw] lg:h-full lg:object-cover' loading='lazy' />";
+                                        break;
+                                    }
+                                }
+                            }
                         }
-                    }
-                    ?>
-                </a>
-            </div>
-            <?php
+                        ?>
+                    </a>
+                </div>
+                <?php
+            }
         }
         ?>
     </div>
