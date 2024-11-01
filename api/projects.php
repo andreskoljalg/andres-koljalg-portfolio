@@ -43,24 +43,24 @@
 
                 if ($categoryName === 'photography') {
                     echo '<div class="hidden lg:flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end">';
-                    echo '<img src="assets/svgs/01_photography_title.svg" id="photography" class="w-4/6 lg:w-3/6" alt="photography_title">';
+                    echo '<img src="/assets/svgs/01_photography_title.svg" id="photography" class="w-4/6 lg:w-3/6" alt="photography_title">';
                     echo '</div>';
                     echo '<div class="flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end lg:hidden">';
-                    echo '<img src="assets/svgs/01_photography_mobile.svg" id="photography" class="w-4/6" alt="photography_title">';
+                    echo '<img src="/assets/svgs/01_photography_mobile.svg" id="photography" class="w-4/6" alt="photography_title">';
                     echo '</div>';
                 } elseif ($categoryName === 'design') {
                     echo '<div class="hidden lg:flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end">';
-                    echo '<img src="assets/svgs/02_design_title.svg" id="design" class="w-4/6 lg:w-3/6" alt="design_title">';
+                    echo '<img src="/assets/svgs/02_design_title.svg" id="design" class="w-4/6 lg:w-3/6" alt="design_title">';
                     echo '</div>';
                     echo '<div class="flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end lg:hidden">';
-                    echo '<img src="assets/svgs/02_design_mobile.svg" id="design" class="w-4/6" alt="design_title">';
+                    echo '<img src="/assets/svgs/02_design_mobile.svg" id="design" class="w-4/6" alt="design_title">';
                     echo '</div>';
                 } elseif ($categoryName === 'other') {
                     echo '<div class="hidden lg:flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end">';
-                    echo '<img src="assets/svgs/03_other_title.svg" id="other" class="w-4/6 lg:w-3/6" alt="other_title">';
+                    echo '<img src="/assets/svgs/03_other_title.svg" id="other" class="w-4/6 lg:w-3/6" alt="other_title">';
                     echo '</div>';
                     echo '<div class="flex w-full p-2 lg:px-12 xl:px-24 lg:py-12 items-end lg:hidden">';
-                    echo '<img src="assets/svgs/03_other_mobile.svg" id="other" class="w-4/6" alt="other_title">';
+                    echo '<img src="/assets/svgs/03_other_mobile.svg" id="other" class="w-4/6" alt="other_title">';
                     echo '</div>';
                 }
 
