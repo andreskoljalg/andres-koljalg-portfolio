@@ -142,25 +142,29 @@ $projectIndex = 0; // Initialize project index
                             </p>
                         </div>
                     </div>
-                    <div class="scroll-container lg:h-[36rem] flex overflow-x-auto overflow-y-hidden lg:w-8/12 auto-scroll <?php echo $scrollDirection; ?>">
+                    <div class="scroll-container lg:h-[36rem] flex overflow-hidden lg:w-8/12 auto-scroll <?php echo $scrollDirection; ?>">
                         <div class="scroll-content">
                             <?php
                             if ($projectMedia) {
-                                // Duplicate the images by looping twice
-                                for ($i = 0; $i < 2; $i++) {
-                                    foreach ($projectMedia as $media) {
-                                        // Get the asset details
-                                        $assetId = $media['sys']['id'];
-                                        // Find the asset in the includes
-                                        foreach ($projectsByCategory['photography']['includes']['Asset'] as $asset) {
-                                            if ($asset['sys']['id'] == $assetId) {
-                                                $fileUrl = 'https:' . $asset['fields']['file']['url'];
-                                                $imageUrl = $fileUrl . '?fm=webp&q=40&w=1000';
-                                                echo "<img src='$imageUrl' class='image-item' loading='lazy' />";
-                                                break;
-                                            }
+                                // Prepare the images array
+                                $images = [];
+                                foreach ($projectMedia as $media) {
+                                    // Get the asset details
+                                    $assetId = $media['sys']['id'];
+                                    // Find the asset in the includes
+                                    foreach ($projectsByCategory['photography']['includes']['Asset'] as $asset) {
+                                        if ($asset['sys']['id'] == $assetId) {
+                                            $fileUrl = 'https:' . $asset['fields']['file']['url'];
+                                            $imageUrl = $fileUrl . '?fm=webp&q=40&w=1000';
+                                            $images[] = $imageUrl;
+                                            break;
                                         }
                                     }
+                                }
+                                // Duplicate the images array
+                                $allImages = array_merge($images, $images);
+                                foreach ($allImages as $imageUrl) {
+                                    echo "<img src='$imageUrl' class='image-item' loading='lazy' />";
                                 }
                             }
                             ?>
@@ -213,25 +217,29 @@ $projectIndex = 0; // Initialize project index
                             </p>
                         </div>
                     </div>
-                    <div class="scroll-container lg:h-[36rem] flex overflow-x-auto overflow-y-hidden lg:w-8/12 auto-scroll <?php echo $scrollDirection; ?>">
+                    <div class="scroll-container lg:h-[36rem] flex overflow-hidden lg:w-8/12 auto-scroll <?php echo $scrollDirection; ?>">
                         <div class="scroll-content">
                             <?php
                             if ($projectMedia) {
-                                // Duplicate the images by looping twice
-                                for ($i = 0; $i < 2; $i++) {
-                                    foreach ($projectMedia as $media) {
-                                        // Get the asset details
-                                        $assetId = $media['sys']['id'];
-                                        // Find the asset in the includes
-                                        foreach ($projectsByCategory['design']['includes']['Asset'] as $asset) {
-                                            if ($asset['sys']['id'] == $assetId) {
-                                                $fileUrl = 'https:' . $asset['fields']['file']['url'];
-                                                $imageUrl = $fileUrl . '?fm=webp&q=40&w=1000';
-                                                echo "<img src='$imageUrl' class='image-item' loading='lazy' />";
-                                                break;
-                                            }
+                                // Prepare the images array
+                                $images = [];
+                                foreach ($projectMedia as $media) {
+                                    // Get the asset details
+                                    $assetId = $media['sys']['id'];
+                                    // Find the asset in the includes
+                                    foreach ($projectsByCategory['design']['includes']['Asset'] as $asset) {
+                                        if ($asset['sys']['id'] == $assetId) {
+                                            $fileUrl = 'https:' . $asset['fields']['file']['url'];
+                                            $imageUrl = $fileUrl . '?fm=webp&q=40&w=1000';
+                                            $images[] = $imageUrl;
+                                            break;
                                         }
                                     }
+                                }
+                                // Duplicate the images array
+                                $allImages = array_merge($images, $images);
+                                foreach ($allImages as $imageUrl) {
+                                    echo "<img src='$imageUrl' class='image-item' loading='lazy' />";
                                 }
                             }
                             ?>
@@ -284,25 +292,29 @@ $projectIndex = 0; // Initialize project index
                             </p>
                         </div>
                     </div>
-                    <div class="scroll-container lg:h-[36rem] flex overflow-x-auto overflow-y-hidden lg:w-8/12 auto-scroll <?php echo $scrollDirection; ?>">
+                    <div class="scroll-container lg:h-[36rem] flex overflow-hidden lg:w-8/12 auto-scroll <?php echo $scrollDirection; ?>">
                         <div class="scroll-content">
                             <?php
                             if ($projectMedia) {
-                                // Duplicate the images by looping twice
-                                for ($i = 0; $i < 2; $i++) {
-                                    foreach ($projectMedia as $media) {
-                                        // Get the asset details
-                                        $assetId = $media['sys']['id'];
-                                        // Find the asset in the includes
-                                        foreach ($projectsByCategory['other']['includes']['Asset'] as $asset) {
-                                            if ($asset['sys']['id'] == $assetId) {
-                                                $fileUrl = 'https:' . $asset['fields']['file']['url'];
-                                                $imageUrl = $fileUrl . '?fm=webp&q=40&w=1000';
-                                                echo "<img src='$imageUrl' class='image-item' loading='lazy' />";
-                                                break;
-                                            }
+                                // Prepare the images array
+                                $images = [];
+                                foreach ($projectMedia as $media) {
+                                    // Get the asset details
+                                    $assetId = $media['sys']['id'];
+                                    // Find the asset in the includes
+                                    foreach ($projectsByCategory['other']['includes']['Asset'] as $asset) {
+                                        if ($asset['sys']['id'] == $assetId) {
+                                            $fileUrl = 'https:' . $asset['fields']['file']['url'];
+                                            $imageUrl = $fileUrl . '?fm=webp&q=40&w=1000';
+                                            $images[] = $imageUrl;
+                                            break;
                                         }
                                     }
+                                }
+                                // Duplicate the images array
+                                $allImages = array_merge($images, $images);
+                                foreach ($allImages as $imageUrl) {
+                                    echo "<img src='$imageUrl' class='image-item' loading='lazy' />";
                                 }
                             }
                             ?>

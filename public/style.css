@@ -1230,27 +1230,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
-//* Auto-scroll container */
+/* Auto-scroll container */
 .scroll-container {
   position: relative;
-  overflow-x: auto; /* Allow horizontal scrolling */
-  overflow-y: hidden;
+  overflow: hidden;
   scroll-behavior: smooth;
-  /* Hide scrollbar for non-touch devices */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
-}
-
-.scroll-container::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
 }
 
 .auto-scroll .scroll-content {
   display: flex;
   flex-wrap: nowrap;
   width: max-content;
-  /* Adjust the animation duration as needed */
-  animation: scroll 30s linear infinite;
+  animation: scroll-linear 30s linear infinite;
 }
 
 .auto-scroll.scroll-left .scroll-content {
@@ -1267,7 +1258,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: auto;
 }
 
-/* Adjust image height on larger screens */
 @media (min-width: 1024px) {
   .image-item {
     height: auto;
@@ -1277,20 +1267,20 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 /* Keyframes for scrolling left */
 @keyframes scroll-left {
-  from {
+  0% {
     transform: translateX(0);
   }
-  to {
+  100% {
     transform: translateX(-50%);
   }
 }
 
 /* Keyframes for scrolling right */
 @keyframes scroll-right {
-  from {
+  0% {
     transform: translateX(-50%);
   }
-  to {
+  100% {
     transform: translateX(0);
   }
 }

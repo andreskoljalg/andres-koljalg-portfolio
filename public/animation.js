@@ -28,26 +28,27 @@ function delay (URL) {
     setTimeout( function() { window.location = URL }, 500 );
 }
 
-ddocument.querySelectorAll('.scroll-container').forEach(container => {
+document.querySelectorAll('.scroll-container').forEach(container => {
     let isDown = false;
     let startX;
     let scrollLeft;
+    let animation;
   
-    // Function to pause animation
-    function pauseAnimation() {
-      container.querySelector('.scroll-content').style.animationPlayState = 'paused';
-    }
+    const scrollContent = container.querySelector('.scroll-content');
+    const scrollWidth = scrollContent.scrollWidth / 2;
   
-    // Function to resume animation
-    function resumeAnimation() {
-      container.querySelector('.scroll-content').style.animationPlayState = 'running';
+    // Function to update animation based on scroll position
+    function updateAnimation() {
+      const scrollPercentage = (container.scrollLeft % scrollWidth) / scrollWidth * 100;
+      scrollContent.style.animation = `${container.classList.contains('scroll-left') ? 'scroll-left' : 'scroll-right'} 30s linear infinite`;
+      scrollContent.style.animationDelay = `-${scrollPercentage * 0.3}s`; // 0.3s per percentage point
     }
   
     // Mouse events for desktop
     container.addEventListener('mousedown', e => {
       isDown = true;
       container.classList.add('active');
-      pauseAnimation();
+      scrollContent.style.animationPlayState = 'paused';
       startX = e.pageX - container.offsetLeft;
       scrollLeft = container.scrollLeft;
     });
@@ -56,14 +57,14 @@ ddocument.querySelectorAll('.scroll-container').forEach(container => {
       if (isDown) {
         isDown = false;
         container.classList.remove('active');
-        resumeAnimation();
+        updateAnimation();
       }
     });
   
     container.addEventListener('mouseup', () => {
       isDown = false;
       container.classList.remove('active');
-      resumeAnimation();
+      updateAnimation();
     });
   
     container.addEventListener('mousemove', e => {
@@ -77,14 +78,14 @@ ddocument.querySelectorAll('.scroll-container').forEach(container => {
     // Touch events for mobile
     container.addEventListener('touchstart', e => {
       isDown = true;
-      pauseAnimation();
+      scrollContent.style.animationPlayState = 'paused';
       startX = e.touches[0].pageX - container.offsetLeft;
       scrollLeft = container.scrollLeft;
     });
   
     container.addEventListener('touchend', () => {
       isDown = false;
-      resumeAnimation();
+      updateAnimation();
     });
   
     container.addEventListener('touchmove', e => {
